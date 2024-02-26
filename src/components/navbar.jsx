@@ -10,6 +10,8 @@ function Navbar(){
                 <Link href="/iceCrean" className="hover:text-yellow-800">Ice cream</Link>
                 <Link href="/chocolates" className="hover:text-yellow-800">Chocolates</Link>
                 <Link href="/forTheTea" className="hover:text-yellow-800">For the tea</Link>
+                <p className="px-3"> <i class='bx bxs-cart text-4xl'></i></p>
+               
             </div>
 
         </div>
