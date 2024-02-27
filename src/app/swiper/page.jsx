@@ -23,7 +23,8 @@ const items = [
   },
   {
     id: 5,
-    name: "Take away"
+    name: "Ice cream",
+    img:"/swiper-icecream-americano.png"
   },{
     id:6,
     name:"Bombon",

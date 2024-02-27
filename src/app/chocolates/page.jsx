@@ -24,7 +24,7 @@ const items = [{
     id: 3,
     name: "Chocolate milk",
     price: 23,
-    soldOut: false,
+    soldOut: true,
     img: "/chocolate-milk.jpg",
     description: "Chocolate with milk"
 }, {
@@ -32,7 +32,7 @@ const items = [{
     name: "Chocolate white",
     img: "/chocolate-white.jpg",
     price: 3,
-    soldOut: true,
+    soldOut: false,
     description: "Chocolate white"
 },
 {

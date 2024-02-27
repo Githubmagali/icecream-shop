@@ -3,7 +3,7 @@ import { useCart } from "../../context/cartProvider";
 import { useState } from "react";
 import Delivery from './delivery'
 import TakeAway from './takeAway'
-
+import SelectSucursal from '@/app/shipping/select'
 
 
 
@@ -22,6 +22,8 @@ function Shipping() {
 
                 <h1 className="text-center text-5xl pt-3">Order page</h1>
                 <h2 className="text-center">Branches with Delivery</h2>
+                <SelectSucursal />
+
                 <div className="text-center text-xl font-bold">Your cart</div>
                 {cart.length > 0 ? (
                     <ul className="lg:w-96 lg:h-30 overflow-scroll bg-slate-50">
