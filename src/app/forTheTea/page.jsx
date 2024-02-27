@@ -65,7 +65,8 @@ function ForTheTea() {
                 {items.map((item, index) => (<>
                     <img src={item.img}
                         alt={item.name}
-                        className={`w-20 h-24 object-cover rounded-md lg:col-span-1 lg:4${item.soldOut ? "filter grayscale opacity-80 text-center" : ""}`}
+                        key={index}
+                        className={`w-20 h-24 object-cover rounded-md lg:col-span-1 ${item.soldOut ? "filter grayscale opacity-80 text-center" : ""}`}
                     />
                     <div className='lg:col-span-1' >
                         <p className='text-center text-green-800'>{item.name}</p>
