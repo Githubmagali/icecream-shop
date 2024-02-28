@@ -1,0 +1,40 @@
+{
+   "chocolate":[
+    {
+       "id":"1",
+       "name":"Chocolate white",
+       "img":"chocolate-white.jpg" 
+    },
+    {
+        "id":"2",
+        "name":"chocolate milk",
+        "img":"chocolate-milk.jpg" 
+     },
+     {
+        "id":"3",
+        "name":"chocolate black and white",
+        "img":"chocolate-blackandwhite.png" 
+     }
+   ],
+"forTheTea":[
+   {
+      "id":"1",
+      "name":"cheesecake",
+      "img":"cheesecake.png"
+
+   },
+   {
+      "id":"2",
+      "name":"cheesecake fruit",
+      "img":"cheesecake-fruit.png"
+
+   },
+   {
+      "id":"3",
+      "name":"Lemon pie",
+      "img":"lemon-pie.png"
+
+   }
+]
+
+}

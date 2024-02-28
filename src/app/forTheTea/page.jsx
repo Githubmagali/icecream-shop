@@ -53,7 +53,7 @@ const items = [{
 
 function ForTheTea() {
 
-    const { cart, addToCart, removeFromCart, getItemQuantity } = useCart()
+    const {addToCart, removeFromCart, getItemQuantity } = useCart()
 
 
 

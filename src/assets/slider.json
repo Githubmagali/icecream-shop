@@ -4,14 +4,14 @@
       {"id": 2, "name": "Bombon"},
       {"id": 3, "name": "Patagonian chocolate"},
       {"id": 4, "name": "White chocolate"},
-      {"id": 1, "name": "Slush"},
-      {"id": 2, "name": "With banana"},
-      {"id": 3, "name": "Full"},
-      {"id": 4, "name": "With brownie"},
-      {"id": 1, "name": "Slush"},
-      {"id": 2, "name": "With banana"},
-      {"id": 3, "name": "Full"},
-      {"id": 4, "name": "With brownie"}
+      {"id": 5, "name": "Slush"},
+      {"id": 6, "name": "With banana"},
+      {"id": 7, "name": "Full"},
+      {"id": 8, "name": "With brownie"},
+      {"id": 9, "name": "Slush"},
+      {"id": 10, "name": "With banana"},
+      {"id": 11, "name": "Full"},
+      {"id": 12, "name": "With brownie"}
 
     ],
     "dulce": [
