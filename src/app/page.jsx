@@ -2,6 +2,7 @@
 import SwiperPage from '@/app/swiper/page'
 import { useInView } from 'react-intersection-observer';
 import data from '@/assets/slider2.json'
+import Footer from '@/components/footer'
 
 function AnimatedItem({ index, children }) {
 
@@ -89,6 +90,7 @@ function HomePage() {
           </AnimatedItem>
         ))}
       </div>
+      <Footer />
 
 
 

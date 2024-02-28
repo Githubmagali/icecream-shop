@@ -5,7 +5,7 @@ import { location } from '@/assets/offices'
 function BranchOffices() {
     const [index, setIndex] = useState(0);
     const hasNext = index < location.length - 1;
-    const hasBefore = index > location.length + 1;
+    const hasBefore = index > 0;
 
     function handleNextClick() {
         if (hasNext) {
@@ -27,7 +27,7 @@ function BranchOffices() {
     return (
         <>
             <div className='flex flex-col items-center justify-center pb-10 px-20'>
-                    <h1 className="text-center text-4xl text-yellow-600 pt-2 ">{local.name} </h1>
+                    <h1 className="text-center text-xl text-yellow-600 ">{local.name} </h1>
                     <div className='flex space-x-64 '>
                         <button onClick={handleClick} className='py-2 px-2 bg-gray-200 hover:bg-gray-400'>
                             <i class='bx bx-left-arrow' ></i>

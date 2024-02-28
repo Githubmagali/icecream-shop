@@ -27,8 +27,8 @@ const items = [
     img:"/swiper-icecream-americano.png"
   },{
     id:6,
-    name:"Bombon",
-    img:"/swiper-bombon.jpg"
+    name:"Lemon pie",
+    img:"/lemon-pie.png"
   }
 ]
 
@@ -47,7 +47,7 @@ function SwiperPage(){
         >
           {items.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className='flex items-center justify-center'>
+              <div className='flex items-center justify-center bg-hero-pattern '>
                 <img src={item.img} alt={item.name} className='w-3/4' />
                 <p className='absolute text-5xl font-bold text-white top-0'>{item.description}</p>
               </div>

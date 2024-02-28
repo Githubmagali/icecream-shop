@@ -9,8 +9,6 @@ function ForTheTea() {
     const {addToCart, removeFromCart, getItemQuantity } = useCart()
 
 
-
-
     return (<>
         <h1 className="text-center text-5xl py-10">For the tea</h1>
         <div className="flex items-center justify-center ">
