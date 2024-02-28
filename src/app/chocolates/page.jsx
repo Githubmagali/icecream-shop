@@ -1,61 +1,12 @@
 "use client"
-import { useState } from "react"
 import { useCart } from "@/context/cartProvider"
+import { chocolates } from "@/assets/offices"
 
 
-
-
-const items = [{
-    id: 1,
-    name: "Chocolate 100%",
-    img: "/chocolate-100.jpg",
-    price: 5.99,
-    soldOut: false,
-    desription: "Chocolate 100%"
-},
-{
-    id: 2,
-    name: "Chocolate black and white",
-    img: "/chocolate-blackandwhite.png",
-    price: 12,
-    soldOut: false,
-    description: "Chocolate black and milk"
-}, {
-    id: 3,
-    name: "Chocolate milk",
-    price: 23,
-    soldOut: true,
-    img: "/chocolate-milk.jpg",
-    description: "Chocolate with milk"
-}, {
-    id: 4,
-    name: "Chocolate white",
-    img: "/chocolate-white.jpg",
-    price: 3,
-    soldOut: false,
-    description: "Chocolate white"
-},
-{
-    id: 5,
-    name: "Bombon",
-    img: "/bombon-milk.jpg",
-    price: 3,
-    soldOut: false,
-    description: "Bombon milk"
-},
-{
-    id:6,
-    name:"Bombon mix",
-    img:"/swiper-bombon.jpg",
-    price:4,
-    soldOut: false,
-    description: "Bombon mix"
-}
-]
 
 function Chocolates() {
 
-    const { cart, addToCart, removeFromCart, getItemQuantity } = useCart()
+    const { addToCart, removeFromCart, getItemQuantity } = useCart()
 
 
 
@@ -64,7 +15,7 @@ function Chocolates() {
                 <h1 className="text-center text-5xl py-10">Chocolates</h1>
         <div className="flex items-center justify-center ">
             <div className="grid sm:gap-y-5 lg:grid-cols-8 text-center lg:px-20">
-                {items.map((item, index) => (<>
+                {chocolates.map((item, index) => (<>
                     <img src={item.img}
                         alt={item.name}
                         key={index}

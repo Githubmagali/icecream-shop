@@ -1,55 +1,8 @@
 "use client"
-import { useState } from "react"
 import { useCart } from "@/context/cartProvider"
+import { items } from '@/assets/offices'
 
 
-const items = [{
-    id: 1,
-    name: "Brownie",
-    img: "/brownie.png",
-    price: 2.99,
-    soldOut: false,
-    desription: "Brownie"
-},
-{
-    id: 2,
-    name: "Cheesecake fruit",
-    img: "/cheesecake-fruit.png",
-    price: 12,
-    soldOut: false,
-    description: "Cheesecake fruit"
-}, {
-    id: 3,
-    name: "Cheesecake lemon",
-    price: 23,
-    soldOut: false,
-    img: "/cheesecake.png",
-    description: "Cheesecake lemon"
-}, {
-    id: 4,
-    name: "Cookies",
-    img: "/cookies.png",
-    price: 3,
-    soldOut: true,
-    description: "Cookies"
-},
-{
-    id: 5,
-    name: "Lemon pie",
-    img: "/lemon-pie.png",
-    price: 3,
-    soldOut: false,
-    description: "Lemon pie"
-},
-{
-    id: 6,
-    name: "Tiramisu",
-    img: "/tiramisu.png",
-    price: 4,
-    soldOut: false,
-    description: "Tiramisu"
-}
-]
 
 function ForTheTea() {
 
