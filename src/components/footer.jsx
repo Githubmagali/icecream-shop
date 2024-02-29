@@ -6,6 +6,9 @@ function Footer() {
             <p className="text-gray-400 sm:text-sm">Contacto defensa del consumidor 0-800-777-7</p>
             </div>
             <div className="flex-1">
+            <div
+  className="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent"
+/>
             <p className="text-gray-400 sm:text-sm">Politica de privacidad</p>
             <p className="text-gray-400 sm:text-sm">Protección de datos personales</p>
             </div>
