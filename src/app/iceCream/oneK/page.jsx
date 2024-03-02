@@ -1,11 +1,16 @@
 "use client"
 import { useState } from 'react';
 import { iceCreams as allIceCreams } from "@/assets/iceCream";
-import data from '@/assets/slider.json'
+import { quantityIceCream } from '@/assets/slider.json'
+import { useCart } from "@/context/cartProvider"
 
 function One() {
-    const secondIceCream = data.quantityIceCream[1];
+  
     const [selectedIceCreams, setSelectedIceCreams] = useState([]);
+
+    const {addToCart, removeFromCart, getItemQuantity } = useCart()
+
+    const iceCream = quantityIceCream[0]
 
     const handleIceCreamSelection = (id) => {
         if (selectedIceCreams.includes(id)) {
@@ -24,14 +29,17 @@ function One() {
     return (
         <div className="flex pl-6 ">
             <img src="/1-id.png" className="w-1/2 h-1/2" />
-            <div className="flex flex-col pt-8  ">
-                <h1 className="text-xl pl-4 font-bold pl-8">{secondIceCream.name}</h1>
-                <p className="text-center pt-3 pb-2">${secondIceCream.price}</p>
+            <div className="flex flex-col pt-8 ">
+               
+                     <h1 className="text-xl pl-4 font-bold pl-8">{iceCream.name}</h1>
+                     <p className="text-center pt-3 pb-2">${iceCream.price}</p>
+     
+                     <div className="flex items-center justify-center gap-x-8 pb-4 ">
+                         <button className="px-1 border border-gray-400"onClick={() => addToCart(iceCream)}>+</button>
+                         <p className="text-xs text-center">{getItemQuantity(iceCream.id)}</p>
+                         <button className="px-1 border border-gray-400"onClick={() => removeFromCart(iceCream.id)}>-</button>
+                     </div>
 
-                <div className="flex items-center justify-center gap-x-8 pb-4 ">
-                    <button className="px-1 border border-gray-400">+</button>
-                    <button className="px-1 border border-gray-400">-</button>
-                </div>
                 {allIceCreams.map((item, index) => (
                     <div key={index} className="flex items-center gap-x-2 pl-5">
                         <input
@@ -40,8 +48,6 @@ function One() {
                             checked={selectedIceCreams.includes(item.id)}
                             onChange={() => handleIceCreamSelection(item.id)} />
                         <p className="text-gray-400">{item.name}</p>
-
-
                     </div>
                 ))}
             </div>

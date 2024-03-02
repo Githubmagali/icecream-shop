@@ -1,13 +1,17 @@
 "use client"
+import { useCart } from "@/context/cartProvider"
 import { useState } from 'react';
 import { iceCreams as allIceCreams } from "@/assets/iceCream";
 import data from '@/assets/slider.json'
+import Footer from "@/components/footer";
 
 
 function Quarter() {
 
-    const thirdIceCream = data.quantityIceCream[1];
+    const thirdIceCream = data.quantityIceCream[2];
     const [selectedIceCreams, setSelectedIceCreams] = useState([]);
+    const {addToCart, removeFromCart, getItemQuantity } = useCart()
+
 
 
     const handleIceCreamSelection = (id) => {
@@ -25,7 +29,7 @@ function Quarter() {
 
 
 
-    return (
+    return (<>
         <div className="flex pl-6 ">
             <img src="/1-id.png" className="w-1/2 h-1/2" />
             <div className="flex flex-col pt-8  ">
@@ -33,8 +37,9 @@ function Quarter() {
                 <p className="text-center pt-3 pb-2">${thirdIceCream.price}</p>
 
                 <div className="flex items-center justify-center gap-x-8 pb-4 ">
-                    <button className="px-1 border border-gray-400">+</button>
-                    <button className="px-1 border border-gray-400">-</button>
+                    <button className="px-1 border border-gray-400"onClick={() => addToCart(thirdIceCream)}>+</button>
+                    <p className="text-xs text-center">{getItemQuantity(thirdIceCream.id)}</p>
+                    <button className="px-1 border border-gray-400"onClick={() => removeFromCart(thirdIceCream.id)}>-</button>
                 </div>
                 {allIceCreams.map((item, index) => (
                     <div key={index} className="flex items-center gap-x-2 pl-5">
@@ -49,8 +54,8 @@ function Quarter() {
                 ))}
             </div>
         </div>
-
-   )
+<Footer />
+        </>  )
 }
 
 export default Quarter
