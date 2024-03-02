@@ -63,7 +63,7 @@
         {"id": 6, "name": "Vainilla"}
       ],
       "quantityIceCream": [
-        {"id": 1, "name": "Ice cream 1 K", "price": 32, "img" : "1-ice-cream.png", "href":"/iceCream/oneK"},
+        {"id": 1, "name": "Ice cream 1 K", "price": 32, "img" : "icon-iceCream.png", "href":"/iceCream/oneK"},
         {"id": 2, "name": "Icre cream 1/2", "price": 29, "img" : "1-2-iceCream.png", "href":"/iceCream/half"},
         {"id": 3, "name": "Ice cream 1/4", "price": 32, "img" : "1-4-iceCream.png", "href":"/iceCream/quarter"}
 

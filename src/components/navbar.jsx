@@ -38,21 +38,21 @@ function Navbar() {
                 <Link href="/shipping" 
                 className={`hover:text-yellow-800 ${pathname === "/shipping" ? 'font-bold text-yellow-800' : ''}`}> <i className='bx bxs-cart text-4xl'></i>{totalItems}</Link>
 
-            </div>
+         
 
         </div>
         {/* Icono de hamburguesa para pantallas pequeñas */}
         <div
-            className="block sm:hidden cursor-pointer text-3xl text-yellow-800 top-0 right-0"
+            className="sm:hidden cursor-pointer text-3xl text-yellow-800 ml-auto"
             onClick={() => setMenuVisible(!menuVisible)}
         >
             &#9776;
         </div>
-
+        </div>
 
         {/* Menú para pantallas pequeñas */}
         {menuVisible && (
-            <div className="flex flex-col sm:flex-row gap-y-4 py-5 justify-end">
+            <div className="flex flex-col sm:flex-row gap-y-4 pl-36">
                 <Link href="/contact" className="hover:text-yellow-800">
                     Contact
                 </Link>
