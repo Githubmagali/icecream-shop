@@ -1,8 +1,17 @@
-import data from "../../assets/slider.json"
+"use client"
+import React, { useState } from 'react';
+import Link from 'next/link';
+import data from "@/assets/slider.json"
+
 
 
 
 function IceCream() {
+
+
+
+    const [showBuyOptions, setShowBuyOptions] = useState(false);
+
     const chocolateData = data.chocolate;
     const dulce = data.dulce;
     const creams = data.creams;
@@ -10,6 +19,12 @@ function IceCream() {
     const recomends = data.recomends;
     const sweetOleasures = data.sweetOleasures;
     const light = data.light;
+    const quantityIceCream = data.quantityIceCream;
+
+    const handleBuyNowClick = () => {
+        setShowBuyOptions(true);
+    };
+
 
 
 
@@ -65,26 +80,38 @@ function IceCream() {
 
                     ))}
                 </div>
-                <div className="col-span-3 pb-4 ">
-                    <button className="bg-yellow-500 hover:bg-yellow-800 hover:text-white py-1 px-2">Buy now</button>
+                <div className="col-span-3 pb-7">
+                    <button
+                        className="bg-yellow-500 hover:bg-yellow-800 hover:text-white py-1 px-2 "
+                        onClick={handleBuyNowClick}>Buy now</button>
+                </div>
+                {showBuyOptions && (
+                    <>
+                        {quantityIceCream.map((item, index) => (<>
 
+                            <div className="flex items-center justify-center pb-10">
+                                <div className=''>
+                                    <img src={item.img}
+                                        className='lg:w-24 h-20'
+                                    />
+                                </div>
+                                <div className='text-center'>
+                                    <p className="text-gray-500">{item.name}</p>
+                                    <p className="text-gray-500 ">${item.price}</p>
+                                    <Link
+                                    className='bg-yellow-100 hover:bg-yellow-200 hover:text-white my-5 px-2 '
+                                     href={item.href} passHref>
+                                        Add cart
+                                    </Link>
 
-                </div>
-                <div className="flex gap-x-2 pb-20">
-                    <p className="">1 kilo</p>
-                    <button className="bg-yellow-500 px-1">+</button>
-                    <button className="bg-yellow-500 px-1">-</button>
-                </div>
-                <div className="flex gap-x-2 pb-20">
-                    <p className="">1/2</p>
-                    <button className="bg-yellow-500 px-1">+</button>
-                    <button className="bg-yellow-500 px-1">-</button>
-                </div>
-                <div className="flex gap-x-2 pb-20">
-                    <p className="">1/4</p>
-                    <button className="bg-yellow-500 px-1">+</button>
-                    <button className="bg-yellow-500 px-1">-</button>
-                </div>
+                                </div>
+                            </div>
+
+                        </>
+                        ))}
+
+                    </>
+                )}
             </div>
 
 

@@ -1,0 +1,22 @@
+export const iceCreams = [
+    { id: 1, name: "chocolate 100%" },
+    { id: 2, name: "Bombon chocolate" },
+    { id: 3, name: "Patagonian chocolate" },
+    { id: 4, name: "Coco" },
+    { id: 5, name: "Chocolate with banana " },
+    { id: 6, name: "Brownie" },
+    { id: 7, name: "Vainilla" },
+    { id: 8, name: "Nutella" },
+    { id: 9, name: "Dulce de leche slush" },
+    { id: 10, name: "With banana" },
+    { id: 11, name: "Sambayon" },
+    { id: 12, name: "With brownie" },
+    { id: 13, name: "American" },
+    { id: 14, name: "Cherry cream" },
+    { id: 15, name: "Lemon mousse" },
+    { id: 16, name: "Chocolate mousse" },
+    { id: 17, name: "Dulce de leche mousse" },
+    { id: 18, name: "Brownie" },
+    { id: 19, name: "Lemon mousse" },
+    { id: 20, name: "Lemon in water" }
+]
