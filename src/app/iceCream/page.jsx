@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import data from "@/assets/slider.json"
+import Footer from '@/components/footer';
+
 
 
 
@@ -18,7 +20,7 @@ function IceCream() {
     const fruits = data.fruits;
     const recomends = data.recomends;
     const sweetOleasures = data.sweetOleasures;
-    const light = data.light;
+    const clasic = data.clasic;
     const quantityIceCream = data.quantityIceCream;
 
     const handleBuyNowClick = () => {
@@ -28,8 +30,8 @@ function IceCream() {
 
 
 
-    return (
-        <div className="flex  justify-center h-screen pt-10">
+    return (<>
+        <div className="flex flex-col justify-center  pt-10">
             <div className="lg:grid lg:grid-cols-3  justify-center text-center gap-x-20">
 
                 <div className="col-span-1  sm:py-10">
@@ -74,8 +76,8 @@ function IceCream() {
                     ))}
                 </div>
                 <div className="col-span-1 sm:py-10">
-                    <h1 className="text-3xl font-bold text-yellow-500">Light</h1>
-                    {light.map((item, index) => (
+                    <h1 className="text-3xl font-bold text-yellow-500">Clasic</h1>
+                    {clasic.map((item, index) => (
                         <p key={index}>{item.name}</p>
 
                     ))}
@@ -96,11 +98,11 @@ function IceCream() {
                                     />
                                 </div>
                                 <div className='text-center'>
-                                    <p className="text-gray-500">{item.name}</p>
-                                    <p className="text-gray-500 ">${item.price}</p>
+                                    <p className="text-gray-500 pl-5">{item.name}</p>
+                                    <p className="text-gray-500 pb-2">${item.price}</p>
                                     <Link
-                                    className='bg-yellow-100 hover:bg-yellow-200 hover:text-white my-5 px-2 '
-                                     href={item.href} passHref>
+                                        className='bg-yellow-100 hover:bg-yellow-200 hover:text-white mb-10 px-2 '
+                                        href={item.href} passHref>
                                         Add cart
                                     </Link>
 
@@ -112,12 +114,13 @@ function IceCream() {
 
                     </>
                 )}
+
             </div>
-
-
-
+       
         </div>
-    )
+        <Footer />
+
+    </>)
 }
 
 export default IceCream

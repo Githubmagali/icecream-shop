@@ -1,7 +1,7 @@
 "use client"
 import { useState} from "react"
 import CustomAlert from '@/components/alert';
-
+import Footer from "@/components/footer";
 
 
 function ResendPage() {
@@ -95,6 +95,7 @@ function ResendPage() {
 
         </form>
       </section>
+      <Footer />
     </>
   )
 }

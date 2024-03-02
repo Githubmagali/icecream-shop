@@ -27,8 +27,8 @@ const items = [
     img:"/swiper-icecream-americano.png"
   },{
     id:6,
-    name:"Lemon pie",
-    img:"/lemon-pie.png"
+    name:"Bombon",
+    img:"/swiper-bombon.jpg"
   }
 ]
 

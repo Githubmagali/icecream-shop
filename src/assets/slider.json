@@ -1,17 +1,12 @@
 {
     "chocolate": [
-      {"id": 1, "name": "100%"},
+      {"id": 1, "name": "Full"},
       {"id": 2, "name": "Bombon"},
       {"id": 3, "name": "Patagonian chocolate"},
-      {"id": 4, "name": "White chocolate"},
+      {"id": 4, "name": "White dulce de leche"},
       {"id": 5, "name": "Slush"},
       {"id": 6, "name": "With banana"},
-      {"id": 7, "name": "Full"},
-      {"id": 8, "name": "With brownie"},
-      {"id": 9, "name": "Slush"},
-      {"id": 10, "name": "With banana"},
-      {"id": 11, "name": "Full"},
-      {"id": 12, "name": "With brownie"}
+      {"id": 7, "name": "With brownie"}
 
     ],
     "dulce": [
@@ -28,11 +23,10 @@
       {"id": 4, "name": "Chocolate mousse"},
       {"id": 5, "name": "Dulce de leche mousse"},
       {"id": 6, "name": "Brownie"},
-      {"id": 7, "name": "Lemon mousse"},
-      {"id": 8, "name": "Lemon mousse"}
+      {"id": 7, "name": "Lemon mousse"}
     ],
     "fruits":[
-        {"id": 1, "name": "Lemon in water"},
+        {"id": 1, "name": "Lemon"},
         {"id": 2, "name": "Raspberry"},
         {"id": 3, "name": "Passion fruit"},
         {"id": 4, "name": "Banana"}
@@ -54,18 +48,17 @@
         {"id": 6, "name": "Vainilla"}
 
       ],
-      "light": [
-        {"id": 1, "name": "American cream"},
-        {"id": 2, "name": "Dulce de leche"},
+      "clasic": [
+        {"id": 1, "name": "Minty hail"},
+        {"id": 2, "name": "American cream"},
         {"id": 3, "name": "Milk"},
-        {"id": 4, "name": "Banana split"},
-        {"id": 5, "name": "Passion fruit"},
-        {"id": 6, "name": "Vainilla"}
+        {"id": 4, "name": "American slushie cream"},
+        {"id": 5, "name": "Dolca banana"}
       ],
       "quantityIceCream": [
         {"id": 1, "name": "Ice cream 1 K", "price": 32, "img" : "icon-iceCream.png", "href":"/iceCream/oneK"},
-        {"id": 2, "name": "Icre cream 1/2", "price": 29, "img" : "1-2-iceCream.png", "href":"/iceCream/half"},
-        {"id": 3, "name": "Ice cream 1/4", "price": 32, "img" : "1-4-iceCream.png", "href":"/iceCream/quarter"}
+        {"id": 2, "name": "Icre cream 1/2", "price": 29, "img" : "icon-2-iceCream.png", "href":"/iceCream/half"},
+        {"id": 3, "name": "Ice cream 1/4", "price": 32, "img" : "icon-3-iceCream.png", "href":"/iceCream/quarter"}
 
       ]
 
