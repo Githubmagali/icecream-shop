@@ -26,7 +26,7 @@ function DeliveryShipping(){
         setIsAlertVisible(true)
 
         if(formData.email === '' || formData.fullname === '' || formData.phone === '' || formData.address === '' || formData.depto === '' || formData.observations === ''){
-            setAlertMessage("Complete todos los campos");
+            setAlertMessage("Complete all fields");
             setIsAlertVisible(true);
             setAlertType("error");
             setIsAlertVisible(true);
@@ -45,11 +45,11 @@ function DeliveryShipping(){
             })
             if (response.ok) {
                 const result = await response.json();
-                console.log('Respuesta del servidor:', result);
+                console.log('Server response:', result);
 
 
 
-                setAlertMessage("Pedido enviado con éxito");
+                setAlertMessage("Order sent successfully");
                 setAlertType("success");
                 setFormData({
                     email: '',
@@ -60,12 +60,12 @@ function DeliveryShipping(){
                 });
 
             } else {
-                setAlertMessage("Error al enviar el mensaje");
+                setAlertMessage("Error sending message");
                 setAlertType("error");
             }
         } catch (error) {
             console.error("Error sending email:", error);
-            setAlertMessage("Error al enviar el mensaje");
+            setAlertMessage("Error sending message");
             setAlertType("error");
         }
 

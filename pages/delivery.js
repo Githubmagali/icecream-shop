@@ -1,11 +1,11 @@
 export async function getServerSideProps() {
 
-    console.log('Simulación de envío de datos a la API');
+    console.log('Simulation of sending data to the API');
 
     // Retorna algunos datos de ejemplo
     return {
         props: {
-            serverData: 'Datos enviados a la API',
+            serverData: 'Data sent to API',
         },
     };
 }

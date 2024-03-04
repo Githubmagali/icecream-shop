@@ -17,7 +17,7 @@ function ResendPage() {
 
 
     if (fullName === '' || email === '' || message === '') {
-      setAlertMessage("Complete todos los campos");
+      setAlertMessage("Complete all fields");
       setIsAlertVisible(true);
 
 
@@ -40,13 +40,13 @@ function ResendPage() {
 
 
       if (res.ok) {
-        setAlertMessage("Mensaje enviado con éxito");
+        setAlertMessage("Message sent succesfully");
       } else {
-        setAlertMessage("Error al enviar el mensaje");
+        setAlertMessage("Error sending message");
       }
     } catch (error) {
       console.error("Error sending email:", error);
-      setAlertMessage("Error al enviar el mensaje");
+      setAlertMessage("Error sending message");
     }
 
 

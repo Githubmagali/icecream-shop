@@ -6,13 +6,13 @@ export default async function handler(req, res) {
   
         // Lógica para procesar los datos, guardar en la base de datos, etc.
   
-        return res.status(200).json({ success: true, message: 'Datos recibidos con éxito' });
+        return res.status(200).json({ success: true, message: 'Data received successfully' });
       } catch (error) {
-        console.error('Error al procesar los datos:', error);
-        return res.status(500).json({ success: false, message: 'Error al procesar los datos' });
+        console.error('Error processing data:', error);
+        return res.status(500).json({ success: false, message: 'Error processing data' });
       }
     } else {
-      return res.status(405).json({ success: false, message: 'Método no permitido' });
+      return res.status(405).json({ success: false, message: 'Disallowed method' });
     }
   }
   

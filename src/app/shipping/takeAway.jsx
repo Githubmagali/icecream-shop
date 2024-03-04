@@ -30,7 +30,7 @@ function TakeAwayShipping() {
         setIsAlertVisible(true);
 
         if (formData.email === '' || formData.fullname === '' || formData.phone === '' || formData.dni === '') {
-            setAlertMessage("Complete todos los campos");
+            setAlertMessage("Complete all fields");
             setIsAlertVisible(true);
             setAlertType("error");
             setIsAlertVisible(true);
@@ -48,10 +48,10 @@ function TakeAwayShipping() {
             })
             if (resp.ok) {
                 const result = await response.json();
-                console.log('Respuesta del servidor:', result);
+                console.log('Server response:', result);
 
 
-                setAlertMessage("Pedido enviado con éxito");
+                setAlertMessage("Order sent successfully");
                 setAlertType("success");
                 setFormData({
                     email: '',
@@ -61,12 +61,12 @@ function TakeAwayShipping() {
                     observations: ''
                 })
             } else {
-                setAlertMessage("Error al enviar el mensaje");
+                setAlertMessage("Error sending message");
                 setAlertType("error");
             }
         } catch (error) {
             console.error("Error sending email:", error);
-            setAlertMessage("Error al enviar el mensaje");
+            setAlertMessage("Error sending message");
             setAlertType("error");
         }
 
