@@ -31,7 +31,7 @@ function Quarter() {
 
     return (<>
         <div className="flex pl-6 ">
-            <img src="/1-id.png" className="w-1/2 h-1/2" />
+            <img src="/swiper-icecream.jpg" className="w-1/2 h-1/2" />
             <div className="flex flex-col pt-8  ">
                 <h1 className="text-xl pl-4 font-bold pl-8">{thirdIceCream.name}</h1>
                 <p className="text-center pt-3 pb-2">${thirdIceCream.price}</p>

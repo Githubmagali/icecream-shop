@@ -65,7 +65,7 @@ function ResendPage() {
   return (
     <>
 
-      <section className="flex  flex-col items-center justify-center sm:text-center " id="contact">
+      <section className="flex  flex-col items-center justify-center sm:text-center px-5 " id="contact">
         <p className="font-bold text-yellow-600 md:text-5xl pt-20">Send us</p>
         <form className="py-10">
           <input type="text" id="fullname" className="border py-2 mb-4 w-1/2 rounded" placeholder="Full name"

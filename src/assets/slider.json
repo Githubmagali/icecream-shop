@@ -56,7 +56,7 @@
         {"id": 5, "name": "Dolca banana"}
       ],
       "quantityIceCream": [
-        {"id": 1, "name": "Ice cream 1 K", "price": 32, "img" : "icon-iceCream.png", "href":"/iceCream/oneK"},
+        {"id": 1, "name": "Ice cream 1 K", "price": 32, "img" : "swiper-icecream.jpg", "href":"/iceCream/oneK"},
         {"id": 2, "name": "Icre cream 1/2", "price": 29, "img" : "icon-2-iceCream.png", "href":"/iceCream/half"},
         {"id": 3, "name": "Ice cream 1/4", "price": 32, "img" : "icon-3-iceCream.png", "href":"/iceCream/quarter"}
 

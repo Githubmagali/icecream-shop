@@ -26,7 +26,7 @@ function Half() {
 
     return (<>
         <div className="flex pl-6 ">
-            <img src="/1-id.png" className="w-1/2 h-1/2" />
+            <img src="/swiper-icecream.jpg" className="w-1/2 h-1/2" />
             <div className="flex flex-col pt-8  ">
                 <h1 className="text-xl pl-4 font-bold pl-8">{firstIceCream.name}</h1>
                 <p className="text-center pt-3 pb-2">${firstIceCream.price}</p>
@@ -39,7 +39,7 @@ function Half() {
                 {allIceCreams.map((item, index) => (
                     <div key={index} className="flex items-center gap-x-2 pl-5">
                         <input
-                            type="radio"
+                            type="checkbox"
                             className="text-gray-400"
                             checked={selectedIceCreams.includes(item.id)}
                             onChange={() => handleIceCreamSelection(item.id)}
