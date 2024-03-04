@@ -45,8 +45,7 @@ function Navbar() {
             <div
                 className="sm:hidden md:hidden cursor-pointer text-3xl text-yellow-800 pr-9"
                 onClick={() => setMenuVisible(!menuVisible)}
-            >
-                 
+            >    <Link href="/shipping" className="text-xl pr-3"><i className='bx bxs-cart'></i>{totalItems}</Link>
                 &#9776;
             </div>
         </div>
