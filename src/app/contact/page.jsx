@@ -4,6 +4,28 @@ import CustomAlert from '@/components/alert';
 import Footer from "@/components/footer";
 
 
+const customers=[
+  {
+  id:1,
+  name:"name"
+},
+{
+  id:2,
+  name:"name2"
+},
+{
+  id:3,
+  name:"name3"
+},
+{
+  id:4,
+  name:"name4"
+},
+]
+
+
+
+
 function ResendPage() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -12,6 +34,8 @@ function ResendPage() {
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [alertType, setAlertType] = useState("");
 
+
+  
   const handleSendEmail = async () => {
     setIsAlertVisible(true);
 
@@ -68,6 +92,8 @@ function ResendPage() {
       <section className="flex  flex-col items-center justify-center sm:text-center px-5 " id="contact">
         <p className="font-bold text-yellow-600 md:text-5xl pt-20">Send us</p>
         <form className="py-10">
+        <div className="rounded-md bg-gray-50 p-4 md:p-6">
+        </div>
           <input type="text" id="fullname" className="border py-2 mb-4 w-1/2 rounded" placeholder="Full name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)} />

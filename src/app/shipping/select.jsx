@@ -1,39 +1,38 @@
 "use client"
-import { useState } from "react";
+import { location } from '@/assets/offices'
+
+
+
 
 function SelectSucursal(){
-    const [mostrarElementos, setMostrarElementos] = useState(false);
-    const [sucursalSeleccionada, setSucursalSeleccionada] = useState('');
-  
-    const toggleElementos = () => {
-      setMostrarElementos(!mostrarElementos);
-    };
-  
-    const seleccionarSucursal = (sucursal) => {
-      setSucursalSeleccionada(sucursal);
-      setMostrarElementos(false);
-    };
+
+ 
+
+ 
     return(
-        <div className='pb-3'>
-        <div className="hover:text-gray-500 text-base flex items-center cursor-pointer text-gray-800 border border-gray-700 px-5" onClick={toggleElementos}>
-          {sucursalSeleccionada || 'Sucursal'} <i className="bx bx-chevron-down"></i>
-        </div>
-        {mostrarElementos && (
-          <div className="grid grid-col-1 w-full h-2">
-            <div className="grid  py-9 px-5 bg-white gap-y-6 z-20 border border-black">
-              <div className="text-gray-800 cursor-pointer" onClick={() => seleccionarSucursal('Lomas')}>
-                Lomas De Zamora
-              </div>
-              <div className="text-gray-800 cursor-pointer" onClick={() => seleccionarSucursal('Recoleta')}>
-                Recoleta
-              </div>
-              <div className="text-gray-800 cursor-pointer" onClick={() => seleccionarSucursal('VillaCrespo')}>
-                Villa Crespo
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+   
+       <div className="mb-4">
+    
+       <div className="relative">
+         <select
+           id="customer"
+           name="customerId"
+           className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+           defaultValue=""
+         >
+           <option value="" disabled>
+            Selected
+           </option>
+         
+           {location.map((office) => (
+            <option key={office.id} value={office.id}>
+              {office.name}
+            </option>
+          ))}
+         </select>
+        
+       </div>
+     </div>
 
     )
 }
