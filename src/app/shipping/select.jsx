@@ -2,8 +2,6 @@
 import { location } from '@/assets/offices'
 
 
-
-
 function SelectSucursal(){
 
  
@@ -15,8 +13,6 @@ function SelectSucursal(){
     
        <div className="relative">
          <select
-           id="customer"
-           name="customerId"
            className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
            defaultValue=""
          >
