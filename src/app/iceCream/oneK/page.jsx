@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { iceCreams as allIceCreams } from "@/assets/iceCream";
 import { quantityIceCream } from '@/assets/slider.json'
 import { useCart } from "@/context/cartProvider"
+import Link from 'next/link';
 
 function One() {
   
@@ -26,8 +27,9 @@ function One() {
 
 
 
-    return (
-        <div className="flex pl-6 ">
+    return (<>
+       <Link href="/iceCream" className='p-5 py-10 text-gray-500 underline decoration-1'>Go back</Link>
+        <div className="flex  pl-6 pt-5 ">
             <img src="/swiper-icecream.jpg" className="w-1/2 h-1/2" />
             <div className="flex flex-col pt-8 ">
                
@@ -52,7 +54,7 @@ function One() {
                 ))}
             </div>
         </div>
-    )
+  </>  )
 }
 
 export default One

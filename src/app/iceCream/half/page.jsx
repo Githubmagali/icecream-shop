@@ -4,6 +4,7 @@ import { iceCreams as allIceCreams } from "@/assets/iceCream";
 import data from '@/assets/slider.json'
 import { useCart } from "@/context/cartProvider"
 import Footer from '@/components/footer';
+import Link from 'next/link';
 
 function Half() {
 
@@ -25,7 +26,8 @@ function Half() {
 
 
     return (<>
-        <div className="flex pl-6 ">
+     <Link href="/iceCream" className='p-5 py-10 text-gray-500 underline decoration-1'>Go back</Link>
+        <div className="flex pl-6 pt-5"> 
             <img src="/swiper-icecream.jpg" className="w-1/2 h-1/2" />
             <div className="flex flex-col pt-8  ">
                 <h1 className="text-xl pl-4 font-bold pl-8">{firstIceCream.name}</h1>
