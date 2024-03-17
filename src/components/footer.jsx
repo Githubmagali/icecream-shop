@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <div className=" bottom-0 left-0 right-0 text-white p-2 ">
+        <div className="bottom-0 left-0 right-0 text-white p-2 ">
             <div className=" flex items-center justify-center px-5">
                 <div className="flex-1">
                     <p className="text-gray-400 text-xs">Kosher certificate</p>
