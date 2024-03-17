@@ -1,10 +1,9 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import data from "@/assets/slider.json"
+import data from "@/assets/slider.json";
 import Footer from '@/components/footer';
-
-
+import quantityIceCream from '@/assets/slider.json';
 
 
 
@@ -91,7 +90,7 @@ function IceCream() {
                     <>
                         {quantityIceCream.map((item, index) => (<>
 
-                            <div className="flex items-center justify-center pb-10">
+                            <div key={index} className="flex items-center justify-center pb-10">
                                 <div className=''>
                                     <img src={item.img}
                                         className='object-cover lg:w-24 h-20'
@@ -100,12 +99,12 @@ function IceCream() {
                                 <div className='text-center'>
                                     <p className="text-gray-500 pl-5">{item.name}</p>
                                     <p className="text-gray-500 pb-2">${item.price}</p>
-                                    <Link
-                                        className='bg-yellow-100 hover:bg-yellow-200 hover:text-white mb-10 px-2 '
-                                        href={item.href} passHref>
-                                        Add cart
-                                    </Link>
 
+                                    <Link href={`/iceCream/[id]/page`} as={`/iceCream/${item.id}/page`} key={item.id}>
+                                        <div key={index}>
+                                            <h1>{item.name}</h1>
+                                        </div>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -115,8 +114,8 @@ function IceCream() {
                     </>
                 )}
 
-            </div>
-       
+            </div>z
+
         </div>
         <Footer />
 
