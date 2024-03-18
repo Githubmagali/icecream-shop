@@ -6,11 +6,7 @@ import { useCart } from "@/context/cartProvider"
 import Footer from '@/components/footer';
 import Link from 'next/link';
 
-export default function IceCreamDetails({
-  params,
-}:{
-  params: { iceCreamId: string }
-}) {
+export default function IceCreamDetails({params}) {
   const { addToCart, removeFromCart, getItemQuantity } = useCart();
   const [selectedIceCreams, setSelectedIceCreams] = useState([]);
   const [iceCream, setIceCream] = useState(null);
