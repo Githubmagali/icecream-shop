@@ -1,9 +1,9 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState,} from 'react';
 import Link from 'next/link';
 import data from "@/assets/slider.json";
 import Footer from '@/components/footer';
-import quantityIceCream from '@/assets/slider.json';
+
 
 
 
@@ -97,13 +97,9 @@ function IceCream() {
                                     />
                                 </div>
                                 <div className='text-center'>
+                                <Link href="/iceCream/[iceCreamId]" as={`/iceCream/${item.id}`} passHref>
                                     <p className="text-gray-500 pl-5">{item.name}</p>
                                     <p className="text-gray-500 pb-2">${item.price}</p>
-
-                                    <Link href={`/iceCream/[id]/page`} as={`/iceCream/${item.id}/page`} key={item.id}>
-                                        <div key={index}>
-                                            <h1>{item.name}</h1>
-                                        </div>
                                     </Link>
                                 </div>
                             </div>
