@@ -26,7 +26,7 @@ function Chocolates() {
                         <p className='text-xs py-2'> $ {item.price}</p>
                         {getItemQuantity(item.id) > 0 ? (
                         <div className="flex gap-x-3 items-center justify-center">
-                        <button className="bg-gray-200 hover:bg-gray-300 px-2 rounded-full" onClick={() => addToCart(item)}>+</button>
+                        <button className="bg-gray-400 hover:bg-gray-600 px-2 rounded-full" onClick={() => addToCart(item)}>+</button>
                         <p className="text-xs text-center">{getItemQuantity(item.id)}</p>
                         <button className="bg-gray-200 hover:bg-gray-300 px-2 rounded-full" onClick={() => removeFromCart(item.id)}>-</button>
                         </div>
