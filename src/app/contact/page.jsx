@@ -43,6 +43,7 @@ function ResendPage() {
     if (fullName === '' || email === '' || message === '') {
       setAlertMessage("Complete all fields");
       setIsAlertVisible(true);
+      setAlertType("error");
 
 
       return;
@@ -65,12 +66,15 @@ function ResendPage() {
 
       if (res.ok) {
         setAlertMessage("Message sent succesfully");
+        setAlertType("success");
       } else {
         setAlertMessage("Error sending message");
+        setAlertType("error");
       }
     } catch (error) {
       console.error("Error sending email:", error);
       setAlertMessage("Error sending message");
+      setAlertType("error");
     }
 
 
@@ -82,6 +86,7 @@ function ResendPage() {
     setTimeout(() => {
       setIsAlertVisible(false);
       setAlertMessage("");
+      setAlertType(""); 
     }, 2000);
 
   };
