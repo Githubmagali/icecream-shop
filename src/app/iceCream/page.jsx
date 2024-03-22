@@ -68,26 +68,24 @@ function IceCream() {
           </div>
           <>
             {quantityIceCream.map((item, index) => (
-              <>
-                <div
-                  key={index}
-                  className="flex items-center justify-center pb-10"
-                >
-                  <div className="">
-                    <img src={item.img} className="object-cover lg:w-24 h-20" />
-                  </div>
-                  <div className="text-center">
-                    <Link
-                      href="/iceCream/[iceCreamId]"
-                      as={`/iceCream/${item.id}`}
-                      passHref
-                    >
-                      <p className="text-gray-500 pl-5">{item.name}</p>
-                      <p className="text-gray-500 pb-2">${item.price}</p>
-                    </Link>
-                  </div>
+              <div
+                key={index}
+                className="flex items-center justify-center pb-10"
+              >
+                <div className="">
+                  <img src={item.img} className="object-cover lg:w-24 h-20" />
                 </div>
-              </>
+                <div className="text-center">
+                  <Link
+                    href="/iceCream/[iceCreamId]"
+                    as={`/iceCream/${item.id}`}
+                    passHref
+                  >
+                    <p className="text-gray-500 pl-5">{item.name}</p>
+                    <p className="text-gray-500 pb-2">${item.price}</p>
+                  </Link>
+                </div>
+              </div>
             ))}
           </>
         </div>
