@@ -14,7 +14,7 @@ function FlavorsList() {
             <p key={index}>{item.name}</p>
           ))}
           <h1 className="text-3xl font-bold text-yellow-500 pt-10">
-            Recomends
+            Recommendations
           </h1>
           {recomends.map((item, index) => (
             <p key={index}>{item.name}</p>
