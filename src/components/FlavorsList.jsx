@@ -1,4 +1,4 @@
-function Flavors() {
+function FlavorsList() {
   return (
     <div>
       <div className="lg:grid lg:grid-cols-3  justify-center text-center gap-x-20">
@@ -51,4 +51,4 @@ function Flavors() {
   );
 }
 
-export default Flavors;
+export default FlavorsList;
