@@ -5,8 +5,6 @@ import data from "@/assets/slider.json";
 import Footer from "@/components/footer";
 
 function IceCream() {
-  const [showBuyOptions, setShowBuyOptions] = useState(false);
-
   const chocolateData = data.chocolate;
   const dulce = data.dulce;
   const creams = data.creams;
@@ -15,10 +13,6 @@ function IceCream() {
   const sweetOleasures = data.sweetOleasures;
   const clasic = data.clasic;
   const quantityIceCream = data.quantityIceCream;
-
-  const handleBuyNowClick = () => {
-    setShowBuyOptions(true);
-  };
 
   return (
     <>
@@ -58,7 +52,6 @@ function IceCream() {
               <p key={index}>{item.name}</p>
             ))}
           </div>
-
           <div className="col-span-1 sm:py-10">
             <h1 className="text-3xl font-bold text-yellow-500">
               Sweet Oleasures
@@ -73,43 +66,30 @@ function IceCream() {
               <p key={index}>{item.name}</p>
             ))}
           </div>
-          <div className="col-span-3 pb-7">
-            <button
-              className="bg-yellow-500 hover:bg-yellow-800 hover:text-white py-1 px-2 "
-              onClick={handleBuyNowClick}
-            >
-              Buy now
-            </button>
-          </div>
-          {showBuyOptions && (
-            <>
-              {quantityIceCream.map((item, index) => (
-                <>
-                  <div
-                    key={index}
-                    className="flex items-center justify-center pb-10"
-                  >
-                    <div className="">
-                      <img
-                        src={item.img}
-                        className="object-cover lg:w-24 h-20"
-                      />
-                    </div>
-                    <div className="text-center">
-                      <Link
-                        href="/iceCream/[iceCreamId]"
-                        as={`/iceCream/${item.id}`}
-                        passHref
-                      >
-                        <p className="text-gray-500 pl-5">{item.name}</p>
-                        <p className="text-gray-500 pb-2">${item.price}</p>
-                      </Link>
-                    </div>
+          <>
+            {quantityIceCream.map((item, index) => (
+              <>
+                <div
+                  key={index}
+                  className="flex items-center justify-center pb-10"
+                >
+                  <div className="">
+                    <img src={item.img} className="object-cover lg:w-24 h-20" />
                   </div>
-                </>
-              ))}
-            </>
-          )}
+                  <div className="text-center">
+                    <Link
+                      href="/iceCream/[iceCreamId]"
+                      as={`/iceCream/${item.id}`}
+                      passHref
+                    >
+                      <p className="text-gray-500 pl-5">{item.name}</p>
+                      <p className="text-gray-500 pb-2">${item.price}</p>
+                    </Link>
+                  </div>
+                </div>
+              </>
+            ))}
+          </>
         </div>
       </div>
       <Footer />
