@@ -1,6 +1,16 @@
+import data from "@/assets/slider.json";
+
 function FlavorsList() {
+  const chocolateData = data.chocolate;
+  const dulce = data.dulce;
+  const creams = data.creams;
+  const fruits = data.fruits;
+  const recomends = data.recomends;
+  const sweetOleasures = data.sweetOleasures;
+  const clasic = data.clasic;
+
   return (
-    <div>
+    <div className="flex flex-col justify-center  pt-10">
       <div className="lg:grid lg:grid-cols-3  justify-center text-center gap-x-20">
         <div className="col-span-1  sm:py-10">
           <h1 className="text-3xl font-bold text-yellow-500">Chocolate</h1>

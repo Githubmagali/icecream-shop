@@ -1,90 +1,87 @@
 "use client";
-import React, { useState } from "react";
 import Link from "next/link";
 import data from "@/assets/slider.json";
+import { useState, useEffect } from "react";
+import { useCart } from "@/context/cartProvider";
+import { iceCreams as allIceCreams } from "@/assets/iceCream";
 import Footer from "@/components/footer";
 
 function IceCream() {
-  const chocolateData = data.chocolate;
-  const dulce = data.dulce;
-  const creams = data.creams;
-  const fruits = data.fruits;
-  const recomends = data.recomends;
-  const sweetOleasures = data.sweetOleasures;
-  const clasic = data.clasic;
-  const quantityIceCream = data.quantityIceCream;
+  const params = { iceCreamId: 1 };
+  const { addToCart, removeFromCart, getItemQuantity } = useCart();
+  const [selectedIceCreams, setSelectedIceCreams] = useState([]);
+  const [iceCream, setIceCream] = useState(null);
+
+  useEffect(() => {
+    // Buscar el helado correspondiente al iceCreamId en los datos
+    console.log("params.iceCreamId", params.iceCreamId);
+    const selectedIceCream = data.quantityIceCream.find(
+      (iceCream) => iceCream.id === parseInt(params.iceCreamId)
+    );
+    setIceCream(selectedIceCream);
+  }, [params.iceCreamId]);
+
+  if (!iceCream) {
+    return <div>Cargando...</div>;
+  }
+
+  const handleIceCreamSelection = (id) => {
+    if (selectedIceCreams.includes(id)) {
+      // Si ya está seleccionado, lo quitamos de la lista
+      setSelectedIceCreams(
+        selectedIceCreams.filter((selectedId) => selectedId !== id)
+      );
+    } else {
+      // Si no está seleccionado y no hemos alcanzado el límite de 3, lo agregamos
+      if (selectedIceCreams.length < 3) {
+        setSelectedIceCreams([...selectedIceCreams, id]);
+      }
+    }
+  };
 
   return (
     <>
-      <div className="flex flex-col justify-center  pt-10">
-        <div className="lg:grid lg:grid-cols-3  justify-center text-center gap-x-20">
-          <div className="col-span-1  sm:py-10">
-            <h1 className="text-3xl font-bold text-yellow-500">Chocolate</h1>
-            {chocolateData.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
-          </div>
-          <div className="col-span-1  sm:py-10">
-            <h1 className="text-3xl font-bold text-yellow-500">
-              Dulce de leche
-            </h1>
-            {dulce.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
-            <h1 className="text-3xl font-bold text-yellow-500 pt-10">
-              Recomends
-            </h1>
-            {recomends.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
-          </div>
-          <div className="col-span-1 sm:py-10 ">
-            <h1 className="text-3xl font-bold text-yellow-500 pt-20 ">
-              Creams
-            </h1>
-            {creams.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
-          </div>
-          <div className="col-span-1 sm:py-10 ">
-            <h1 className="text-3xl font-bold text-yellow-500">Fruits</h1>
-            {fruits.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
-          </div>
-          <div className="col-span-1 sm:py-10">
-            <h1 className="text-3xl font-bold text-yellow-500">
-              Sweet Oleasures
-            </h1>
-            {sweetOleasures.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
-          </div>
-          <div className="col-span-1 sm:py-10">
-            <h1 className="text-3xl font-bold text-yellow-500">Clasic</h1>
-            {clasic.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
-          </div>
-        </div>
+      {/* <Link
+        href="/iceCream"
+        className="p-5 py-10 text-gray-500 underline decoration-1"
+      >
+        Go back
+      </Link> */}
+      <div className="flex pl-6 pt-5">
+        <img src="/swiper-icecream.jpg" className="w-1/2 h-1/2" />
+        <div className="flex flex-col pt-8  ">
+          <h1 className="text-xl pl-4 font-bold pl-8">{iceCream.name}</h1>
+          <p className="text-center pt-3 pb-2">${iceCream.price}</p>
 
-        {quantityIceCream.map((item, index) => (
-          <div key={index} className="flex items-center justify-center pb-10">
-            <div className="">
-              <img src={item.img} className="object-cover lg:w-24 h-20" />
-            </div>
-            <div className="text-center">
-              <Link
-                href="/iceCream/[iceCreamId]"
-                as={`/iceCream/${item.id}`}
-                passHref
-              >
-                <p className="text-gray-500 pl-5">{item.name}</p>
-                <p className="text-gray-500 pb-2">${item.price}</p>
-              </Link>
-            </div>
+          <div className="flex items-center justify-center gap-x-8 pb-4 ">
+            <button
+              className="px-1 border border-gray-400"
+              onClick={() => addToCart(iceCream)}
+            >
+              +
+            </button>
+            <p className="text-xs text-center">
+              {getItemQuantity(iceCream.id)}
+            </p>
+            <button
+              className="px-1 border border-gray-400"
+              onClick={() => removeFromCart(iceCream.id)}
+            >
+              -
+            </button>
           </div>
-        ))}
+          {allIceCreams.map((item, index) => (
+            <div key={index} className="flex items-center gap-x-2 pl-5">
+              <input
+                type="checkbox"
+                className="text-gray-400"
+                checked={selectedIceCreams.includes(item.id)}
+                onChange={() => handleIceCreamSelection(item.id)}
+              />
+              <p className="text-gray-400">{item.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
       <Footer />
     </>
