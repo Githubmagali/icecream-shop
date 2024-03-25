@@ -2,7 +2,7 @@
 import { useState } from "react";
 import data from "@/assets/slider.json";
 
-function IceCreamSelection({ selection, onRemove }) {
+function IceCreamSelection({ selection, onSizeChange, onRemove }) {
   const [selectedFlavors, setSelectedFlavors] = useState(
     Array(selection.size === "1kg" ? 4 : 3).fill(null)
   );
@@ -13,9 +13,10 @@ function IceCreamSelection({ selection, onRemove }) {
     setSelectedFlavors(updatedFlavors);
   };
 
-  const iceCream = data.quantityIceCream.find((item) =>
-    item.name.toLowerCase().includes(selection.size)
-  );
+  const iceCream = data.quantityIceCream.find(
+  (item) => item.id === selection.id
+);
+  console.log("iceCream", iceCream);
 
   return (
     <div className="mb-8 p-4 border border-gray-300 rounded-md">
@@ -29,6 +30,20 @@ function IceCreamSelection({ selection, onRemove }) {
             />
             <div>
               <h3 className="text-lg font-bold mb-2">{selection.size} Pot</h3>
+              <select
+                value={selection.size}
+                onChange={(event) => onSizeChange(event.target.value)}
+                className="border border-gray-400 px-2 py-1"
+              >
+                {data.quantityIceCream.map((item) => (
+                  <option
+                    key={item.id}
+                    value={item.name.split(" ").pop().toLowerCase()}
+                  >
+                    {item.name}
+                  </option>
+                ))}
+              </select>
             </div>
           </>
         )}

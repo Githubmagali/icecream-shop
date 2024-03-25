@@ -1,68 +1,74 @@
 {
-
-    "chocolate": [
-      {"id": 1, "name": "Full"},
-      {"id": 2, "name": "Bombon"},
-      {"id": 3, "name": "Patagonian chocolate"},
-      {"id": 4, "name": "White dulce de leche"},
-      {"id": 5, "name": "Slush"},
-      {"id": 6, "name": "With banana"},
-      {"id": 7, "name": "With brownie"}
-
-    ],
-    "dulce": [
-      {"id": 1, "name": "Slush"},
-      {"id": 2, "name": "With banana"},
-      {"id": 3, "name": "Full"},
-      {"id": 4, "name": "With brownie"}
-
-    ],
-    "creams": [
-      {"id": 1, "name": "American"},
-      {"id": 2, "name": "Cherry cream"},
-      {"id": 3, "name": "Lemon mousse"},
-      {"id": 4, "name": "Chocolate mousse"},
-      {"id": 5, "name": "Dulce de leche mousse"},
-      {"id": 6, "name": "Brownie"},
-      {"id": 7, "name": "Lemon mousse"}
-    ],
-    "fruits":[
-        {"id": 1, "name": "Lemon"},
-        {"id": 2, "name": "Raspberry"},
-        {"id": 3, "name": "Passion fruit"},
-        {"id": 4, "name": "Banana"}
-
-    ],
-    "recomends": [
-        {"id": 1, "name": "Alfajor"},
-        {"id": 2, "name": "Nutella"},
-        {"id": 3, "name": "Yogurt"},
-        {"id": 4, "name": "Passion fruit"},
-        {"id": 5, "name": "Coco"}
-      ],
-      "sweetOleasures": [
-        {"id": 1, "name": "Sambayon"},
-        {"id": 2, "name": "Pistaccio"},
-        {"id": 3, "name": "Tramuntana"},
-        {"id": 4, "name": "Banana split"},
-        {"id": 5, "name": "Passion fruit"},
-        {"id": 6, "name": "Vainilla"}
-
-      ],
-      "clasic": [
-        {"id": 1, "name": "Minty hail"},
-        {"id": 2, "name": "American cream"},
-        {"id": 3, "name": "Milk"},
-        {"id": 4, "name": "American slushie cream"},
-        {"id": 5, "name": "Dolca banana"}
-      ],
-      "quantityIceCream": [
-        {"id": 1, "name": "Ice cream 1 K", "price": 32, "img" : "/swiper-icecream.jpg", "href":"/iceCream/oneK"},
-        {"id": 2, "name": "Icre cream 1/2", "price": 29, "img" : "/icon-2-iceCream.png", "href":"/iceCream/half"},
-        {"id": 3, "name": "Ice cream 1/4", "price": 32, "img" : "/icon-3-iceCream.png", "href":"/iceCream/quarter"}
-
-      ]
-
-  }
-
-  
+  "chocolate": [
+    { "id": 1, "name": "Full" },
+    { "id": 2, "name": "Bombon" },
+    { "id": 3, "name": "Patagonian chocolate" },
+    { "id": 4, "name": "White dulce de leche" },
+    { "id": 5, "name": "Slush" },
+    { "id": 6, "name": "With banana" },
+    { "id": 7, "name": "With brownie" }
+  ],
+  "dulce": [
+    { "id": 1, "name": "Slush" },
+    { "id": 2, "name": "With banana" },
+    { "id": 3, "name": "Full" },
+    { "id": 4, "name": "With brownie" }
+  ],
+  "creams": [
+    { "id": 1, "name": "American" },
+    { "id": 2, "name": "Cherry cream" },
+    { "id": 3, "name": "Lemon mousse" },
+    { "id": 4, "name": "Chocolate mousse" },
+    { "id": 5, "name": "Dulce de leche mousse" },
+    { "id": 6, "name": "Brownie" },
+    { "id": 7, "name": "Lemon mousse" }
+  ],
+  "fruits": [
+    { "id": 1, "name": "Lemon" },
+    { "id": 2, "name": "Raspberry" },
+    { "id": 3, "name": "Passion fruit" },
+    { "id": 4, "name": "Banana" }
+  ],
+  "recomends": [
+    { "id": 1, "name": "Alfajor" },
+    { "id": 2, "name": "Nutella" },
+    { "id": 3, "name": "Yogurt" },
+    { "id": 4, "name": "Passion fruit" },
+    { "id": 5, "name": "Coco" }
+  ],
+  "sweetOleasures": [
+    { "id": 1, "name": "Sambayon" },
+    { "id": 2, "name": "Pistaccio" },
+    { "id": 3, "name": "Tramuntana" },
+    { "id": 4, "name": "Banana split" },
+    { "id": 5, "name": "Passion fruit" },
+    { "id": 6, "name": "Vainilla" }
+  ],
+  "clasic": [
+    { "id": 1, "name": "Minty hail" },
+    { "id": 2, "name": "American cream" },
+    { "id": 3, "name": "Milk" },
+    { "id": 4, "name": "American slushie cream" },
+    { "id": 5, "name": "Dolca banana" }
+  ],
+  "quantityIceCream": [
+    {
+      "id": 1,
+      "size": "1/4kg",
+      "price": 20,
+      "img": "/icon-3-iceCream.png"
+    },
+    {
+      "id": 2,
+      "size": "1/2kg",
+      "price": 30,
+      "img": "/icon-2-iceCream.png"
+    },
+    {
+      "id": 3,
+      "size": "1kg",
+      "price": 50,
+      "img": "/swiper-icecream.jpg"
+    }
+  ]
+}

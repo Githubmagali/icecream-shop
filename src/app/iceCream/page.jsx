@@ -6,22 +6,30 @@ import { useCart } from "@/context/cartProvider";
 import data from "@/assets/slider.json";
 import Footer from "@/components/footer";
 import IceCreamSelection from "@/components/IceCreamSelection";
-
+import { sizeMapping as size } from "@/assets/sizeMapping";
 function IceCream() {
-  const { addToCart, removeFromCart, getItemQuantity } = useCart();
-  const [selectedSize, setSelectedSize] = useState("1kg");
-  const [selections, setSelections] = useState([{ id: 1, size: "1kg" }]);
+  const [selections, setSelections] = useState([
+    { id: 1, size: size.small, flavors: Array(4).fill(null) },
+  ]);
 
-  const handleSizeChange = (event) => {
-    const size = event.target.value;
-    setSelectedSize(size);
-    setSelections([{ id: 1, size }]);
+  const handleSizeChange = (id, size) => {
+    setSelections((prevSelections) =>
+      prevSelections.map((selection) => {
+        if (selection.id === id) {
+          const numFlavors = size === "1kg" ? 4 : 3;
+          const updatedFlavors = selection.flavors.slice(0, numFlavors);
+          return { ...selection, size, flavors: updatedFlavors };
+        }
+        return selection;
+      })
+    );
   };
 
   const addSelection = () => {
     const newSelection = {
       id: selections.length + 1,
-      size: selectedSize,
+      size: selections[-1].size,
+      flavors: Array(4).fill(null),
     };
     setSelections([...selections, newSelection]);
   };
@@ -33,36 +41,19 @@ function IceCream() {
     setSelections(updatedSelections);
   };
 
-  const isNextStepButtonDisabled = selections.length === 0;
+  const isNextStepButtonDisabled = selections.some((selection) =>
+    selection.flavors.some((flavor) => flavor === null)
+  );
 
   return (
     <>
       <div className="pl-6 pt-5">
         <h1 className="text-2xl font-bold mb-4">Create Your Ice Cream</h1>
-        <div className="mb-8">
-          <label htmlFor="size" className="block mb-2">
-            Select Size:
-          </label>
-          <select
-            id="size"
-            value={selectedSize}
-            onChange={handleSizeChange}
-            className="border border-gray-400 px-2 py-1"
-          >
-            {data.quantityIceCream.map((item) => (
-              <option
-                key={item.id}
-                value={item.name.split(" ").pop().toLowerCase()}
-              >
-                {item.name}
-              </option>
-            ))}
-          </select>
-        </div>
         {selections.map((selection) => (
           <IceCreamSelection
             key={selection.id}
             selection={selection}
+            onSizeChange={(size) => handleSizeChange(selection.id, size)}
             onRemove={() => removeSelection(selection.id)}
           />
         ))}
