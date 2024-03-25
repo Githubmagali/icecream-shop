@@ -6,30 +6,37 @@ import { useCart } from "@/context/cartProvider";
 import data from "@/assets/slider.json";
 import Footer from "@/components/footer";
 import IceCreamSelection from "@/components/IceCreamSelection";
-import { sizeMapping as size } from "@/assets/sizeMapping";
-function IceCream() {
-  const [selections, setSelections] = useState([
-    { id: 1, size: size.small, flavors: Array(4).fill(null) },
-  ]);
 
-  const handleSizeChange = (id, size) => {
-    setSelections((prevSelections) =>
-      prevSelections.map((selection) => {
-        if (selection.id === id) {
-          const numFlavors = size === "1kg" ? 4 : 3;
-          const updatedFlavors = selection.flavors.slice(0, numFlavors);
-          return { ...selection, size, flavors: updatedFlavors };
-        }
-        return selection;
-      })
-    );
-  };
+const qIceCream = data.quantityIceCream;
+const sizeMapping = {
+  small: {
+    size: qIceCream.find((item) => item.id === 1).size,
+    price: qIceCream.find((item) => item.id === 1).price,
+    img: qIceCream.find((item) => item.id === 1).img,
+  },
+  medium: {
+    size: qIceCream.find((item) => item.id === 2).size,
+    price: qIceCream.find((item) => item.id === 2).price,
+    img: qIceCream.find((item) => item.id === 2).img,
+  },
+  large: {
+    size: qIceCream.find((item) => item.id === 3).size,
+    price: qIceCream.find((item) => item.id === 3).price,
+    img: qIceCream.find((item) => item.id === 3).img,
+  },
+};
+
+function IceCream() {
+  console.log("sizeMapping", sizeMapping);
+  const { addToCart, removeFromCart, getItemQuantity } = useCart();
+  const [selections, setSelections] = useState([
+    { id: 1, ...sizeMapping.small },
+  ]);
 
   const addSelection = () => {
     const newSelection = {
       id: selections.length + 1,
-      size: selections[-1].size,
-      flavors: Array(4).fill(null),
+      ...sizeMapping.small,
     };
     setSelections([...selections, newSelection]);
   };
@@ -41,9 +48,17 @@ function IceCream() {
     setSelections(updatedSelections);
   };
 
-  const isNextStepButtonDisabled = selections.some((selection) =>
-    selection.flavors.some((flavor) => flavor === null)
-  );
+  const handleSizeChange = (id, size) => {
+    const updatedSelections = selections.map((selection) => {
+      if (selection.id === id) {
+        return { ...selection, size };
+      }
+      return selection;
+    });
+    setSelections(updatedSelections);
+  };
+
+  const isNextStepButtonDisabled = selections.length === 0;
 
   return (
     <>
@@ -53,8 +68,8 @@ function IceCream() {
           <IceCreamSelection
             key={selection.id}
             selection={selection}
-            onSizeChange={(size) => handleSizeChange(selection.id, size)}
             onRemove={() => removeSelection(selection.id)}
+            onSizeChange={handleSizeChange}
           />
         ))}
         <div className="flex justify-between items-center">
