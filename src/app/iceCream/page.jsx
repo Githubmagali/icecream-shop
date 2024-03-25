@@ -30,7 +30,6 @@ function IceCream() {
   };
 
   const handleSizeChange = (id, size) => {
-    console.log("id", id, "size", size);
     const updatedSelections = selections.map((selection) => {
       if (selection.id === id) {
         return {
