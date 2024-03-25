@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import data from "@/assets/slider.json";
-// IceCream.js
-import sizeMapping from "@/assets/sizeMapping";
+import sizeMapping from "@/utils/sizeMapping";
 
 function IceCreamSelection({ selection, onSizeChange, onRemove }) {
   const [selectedFlavors, setSelectedFlavors] = useState(

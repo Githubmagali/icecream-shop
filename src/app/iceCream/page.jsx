@@ -6,8 +6,7 @@ import { useCart } from "@/context/cartProvider";
 import data from "@/assets/slider.json";
 import Footer from "@/components/footer";
 import IceCreamSelection from "@/components/IceCreamSelection";
-// IceCream.js
-import sizeMapping from "@/assets/sizeMapping";
+import sizeMapping from "@/utils/sizeMapping";
 
 function IceCream() {
   const { addToCart, removeFromCart, getItemQuantity } = useCart();
