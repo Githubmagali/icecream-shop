@@ -1,7 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import data from "@/assets/slider.json";
-import sizeMapping from "@/assets/sizeMapping";
+
+const qIceCream = data.quantityIceCream;
+const sizeMapping = {
+  small: {
+    size: qIceCream.find((item) => item.id === 1).size,
+    price: qIceCream.find((item) => item.id === 1).price,
+    img: qIceCream.find((item) => item.id === 1).img,
+  },
+  medium: {
+    size: qIceCream.find((item) => item.id === 2).size,
+    price: qIceCream.find((item) => item.id === 2).price,
+    img: qIceCream.find((item) => item.id === 2).img,
+  },
+  large: {
+    size: qIceCream.find((item) => item.id === 3).size,
+    price: qIceCream.find((item) => item.id === 3).price,
+    img: qIceCream.find((item) => item.id === 3).img,
+  },
+};
 
 function IceCreamSelection({ selection, onSizeChange, onRemove }) {
   const [selectedFlavors, setSelectedFlavors] = useState(
@@ -14,40 +32,31 @@ function IceCreamSelection({ selection, onSizeChange, onRemove }) {
     setSelectedFlavors(updatedFlavors);
   };
 
-  const iceCream = data.quantityIceCream.find((item) =>
-    item.name.toLowerCase().includes(selection.size)
-  );
-  console.log("iceCream", iceCream);
-
   return (
     <div className="mb-8 p-4 border border-gray-300 rounded-md">
       <div className="flex items-center mb-4">
-        {iceCream && (
-          <>
-            <img
-              src={iceCream.img}
-              alt={iceCream.name}
-              className="w-32 h-32 object-cover mr-4"
-            />
-            <div>
-              <h3 className="text-lg font-bold mb-2">{selection.size} Pot</h3>
-              <select
-                value={selection.size}
-                onChange={(event) => onSizeChange(event.target.value)}
-                className="border border-gray-400 px-2 py-1"
+        <img
+          src={selection.img}
+          alt={selection.name}
+          className="w-32 h-32 object-cover mr-4"
+        />
+        <div>
+          <h3 className="text-lg font-bold mb-2">{selection.size} Pot</h3>
+          <select
+            value={selection.size}
+            onChange={(event) => onSizeChange(event.target.value)}
+            className="border border-gray-400 px-2 py-1"
+          >
+            {data.quantityIceCream.map((item) => (
+              <option
+                key={item.id}
+                value={item.size}
               >
-                {data.quantityIceCream.map((item) => (
-                  <option
-                    key={item.id}
-                    value={item.name.split(" ").pop().toLowerCase()}
-                  >
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </>
-        )}
+                {item.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       {Array.from({ length: selection.size === "1kg" ? 4 : 3 }).map(
         (_, index) => (
