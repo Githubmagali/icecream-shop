@@ -8,7 +8,7 @@ import Footer from "@/components/footer";
 import sizeMapping from "@/assets/sizeMapping";
 function IceCream() {
   const { addToCart, removeFromCart, getItemQuantity } = useCart();
-  const [selections, setSelections] = useState([sizeMapping.small]);
+  const [selections, setSelections] = useState([{id: 1, ...sizeMapping.small}]);
 
   const addSelection = () => {
     const newSelection = {
