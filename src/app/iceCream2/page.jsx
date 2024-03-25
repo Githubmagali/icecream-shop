@@ -5,15 +5,15 @@ import { useState } from "react";
 import { useCart } from "@/context/cartProvider";
 import data from "@/assets/slider.json";
 import Footer from "@/components/footer";
-
+import sizeMapping from "@/assets/sizeMapping";
 function IceCream() {
   const { addToCart, removeFromCart, getItemQuantity } = useCart();
-  const [selections, setSelections] = useState([{ id: 1, size: "1kg" }]);
+  const [selections, setSelections] = useState([sizeMapping.small]);
 
   const addSelection = () => {
     const newSelection = {
       id: selections.length + 1,
-      size: "1kg",
+      ...sizeMapping.small,
     };
     setSelections([...selections, newSelection]);
   };

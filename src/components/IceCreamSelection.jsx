@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import data from "@/assets/slider.json";
+import sizeMapping from "@/assets/sizeMapping";
 
 function IceCreamSelection({ selection, onSizeChange, onRemove }) {
   const [selectedFlavors, setSelectedFlavors] = useState(
@@ -13,9 +14,9 @@ function IceCreamSelection({ selection, onSizeChange, onRemove }) {
     setSelectedFlavors(updatedFlavors);
   };
 
-  const iceCream = data.quantityIceCream.find(
-  (item) => item.id === selection.id
-);
+  const iceCream = data.quantityIceCream.find((item) =>
+    item.name.toLowerCase().includes(selection.size)
+  );
   console.log("iceCream", iceCream);
 
   return (
