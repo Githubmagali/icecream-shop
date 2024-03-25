@@ -1,5 +1,9 @@
+import data from "@/assets/slider.json";
+
+const qIceCream = data.quantityIceCream;
+
 export const sizeMapping = {
-  "small": "1/4",
-  medium: "1/2",
-  large: "1",
+  small: qIceCream.find((item) => item.size === "1/4kg"),
+  medium: qIceCream.find((item) => item.size === "1/2kg"),
+  large: qIceCream.find((item) => item.size === "1kg"),
 };
