@@ -29,7 +29,7 @@ function IceCreamSelection({ selection, onSizeChange, onRemove }) {
             onChange={(event) => onSizeChange(selection.id, event.target.value)}
             className="border border-gray-400 px-2 py-1"
           >
-            {Object.entries(sizeMapping).map(([key, value], i) => (
+            {Object.entries(sizeMapping).map(([key, value]) => (
               <option key={key} value={value.size}>
                 {value.size}
               </option>
