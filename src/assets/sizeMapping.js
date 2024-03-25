@@ -1,7 +1,9 @@
+// utils/sizeMapping.js
 import data from "@/assets/slider.json";
+
 const qIceCream = data.quantityIceCream;
 
-export const sizeMapping = {
+const sizeMapping = {
   small: {
     size: qIceCream.find((item) => item.id === 1).size,
     price: qIceCream.find((item) => item.id === 1).price,
@@ -18,3 +20,5 @@ export const sizeMapping = {
     img: qIceCream.find((item) => item.id === 3).img,
   },
 };
+
+export default sizeMapping;

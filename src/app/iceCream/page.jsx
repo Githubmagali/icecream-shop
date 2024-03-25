@@ -6,28 +6,10 @@ import { useCart } from "@/context/cartProvider";
 import data from "@/assets/slider.json";
 import Footer from "@/components/footer";
 import IceCreamSelection from "@/components/IceCreamSelection";
-
-const qIceCream = data.quantityIceCream;
-const sizeMapping = {
-  small: {
-    size: qIceCream.find((item) => item.id === 1).size,
-    price: qIceCream.find((item) => item.id === 1).price,
-    img: qIceCream.find((item) => item.id === 1).img,
-  },
-  medium: {
-    size: qIceCream.find((item) => item.id === 2).size,
-    price: qIceCream.find((item) => item.id === 2).price,
-    img: qIceCream.find((item) => item.id === 2).img,
-  },
-  large: {
-    size: qIceCream.find((item) => item.id === 3).size,
-    price: qIceCream.find((item) => item.id === 3).price,
-    img: qIceCream.find((item) => item.id === 3).img,
-  },
-};
+// IceCream.js
+import sizeMapping from "@/assets/sizeMapping";
 
 function IceCream() {
-  console.log("sizeMapping", sizeMapping);
   const { addToCart, removeFromCart, getItemQuantity } = useCart();
   const [selections, setSelections] = useState([
     { id: 1, ...sizeMapping.small },
@@ -49,9 +31,24 @@ function IceCream() {
   };
 
   const handleSizeChange = (id, size) => {
+    console.log("id", id, "size", size);
     const updatedSelections = selections.map((selection) => {
       if (selection.id === id) {
-        return { ...selection, size };
+        return {
+          ...selection,
+          size: size,
+          price:
+            sizeMapping[
+              Object.keys(sizeMapping).find(
+                (key) => sizeMapping[key].size === size
+              )
+            ].price,
+          img: sizeMapping[
+            Object.keys(sizeMapping).find(
+              (key) => sizeMapping[key].size === size
+            )
+          ].img,
+        };
       }
       return selection;
     });

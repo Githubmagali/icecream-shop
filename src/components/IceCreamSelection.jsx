@@ -1,25 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import data from "@/assets/slider.json";
-
-const qIceCream = data.quantityIceCream;
-const sizeMapping = {
-  small: {
-    size: qIceCream.find((item) => item.id === 1).size,
-    price: qIceCream.find((item) => item.id === 1).price,
-    img: qIceCream.find((item) => item.id === 1).img,
-  },
-  medium: {
-    size: qIceCream.find((item) => item.id === 2).size,
-    price: qIceCream.find((item) => item.id === 2).price,
-    img: qIceCream.find((item) => item.id === 2).img,
-  },
-  large: {
-    size: qIceCream.find((item) => item.id === 3).size,
-    price: qIceCream.find((item) => item.id === 3).price,
-    img: qIceCream.find((item) => item.id === 3).img,
-  },
-};
+// IceCream.js
+import sizeMapping from "@/assets/sizeMapping";
 
 function IceCreamSelection({ selection, onSizeChange, onRemove }) {
   const [selectedFlavors, setSelectedFlavors] = useState(
@@ -44,15 +27,12 @@ function IceCreamSelection({ selection, onSizeChange, onRemove }) {
           <h3 className="text-lg font-bold mb-2">{selection.size} Pot</h3>
           <select
             value={selection.size}
-            onChange={(event) => onSizeChange(event.target.value)}
+            onChange={(event) => onSizeChange(selection.id, event.target.value)}
             className="border border-gray-400 px-2 py-1"
           >
-            {data.quantityIceCream.map((item) => (
-              <option
-                key={item.id}
-                value={item.size}
-              >
-                {item.name}
+            {Object.entries(sizeMapping).map(([key, value], i) => (
+              <option key={key} value={value.size}>
+                {value.size}
               </option>
             ))}
           </select>
