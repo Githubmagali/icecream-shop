@@ -1,121 +1,94 @@
-"use client"
-import React, { useState,} from 'react';
-import Link from 'next/link';
+/* eslint-disable @next/next/no-img-element */
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { useCart } from "@/context/cartProvider";
 import data from "@/assets/slider.json";
-import Footer from '@/components/footer';
-
-
-
+import Footer from "@/components/footer";
+import IceCreamSelection from "@/components/IceCreamSelection";
+import sizeMapping from "@/utils/sizeMapping";
 
 function IceCream() {
+  const { addToCart, removeFromCart, getItemQuantity } = useCart();
+  const [selections, setSelections] = useState([
+    { id: 1, ...sizeMapping.small },
+  ]);
 
-
-
-    const [showBuyOptions, setShowBuyOptions] = useState(false);
-
-    const chocolateData = data.chocolate;
-    const dulce = data.dulce;
-    const creams = data.creams;
-    const fruits = data.fruits;
-    const recomends = data.recomends;
-    const sweetOleasures = data.sweetOleasures;
-    const clasic = data.clasic;
-    const quantityIceCream = data.quantityIceCream;
-
-    const handleBuyNowClick = () => {
-        setShowBuyOptions(true);
+  const addSelection = () => {
+    const newSelection = {
+      id: selections.length + 1,
+      ...sizeMapping.small,
     };
+    setSelections([...selections, newSelection]);
+  };
 
+  const removeSelection = (id) => {
+    const updatedSelections = selections.filter(
+      (selection) => selection.id !== id
+    );
+    setSelections(updatedSelections);
+  };
 
+  const handleSizeChange = (id, size) => {
+    const updatedSelections = selections.map((selection) => {
+      if (selection.id === id) {
+        return {
+          ...selection,
+          size: size,
+          price:
+            sizeMapping[
+              Object.keys(sizeMapping).find(
+                (key) => sizeMapping[key].size === size
+              )
+            ].price,
+          img: sizeMapping[
+            Object.keys(sizeMapping).find(
+              (key) => sizeMapping[key].size === size
+            )
+          ].img,
+        };
+      }
+      return selection;
+    });
+    setSelections(updatedSelections);
+  };
 
+  const isNextStepButtonDisabled = selections.length === 0;
 
-    return (<>
-        <div className="flex flex-col justify-center  pt-10">
-            <div className="lg:grid lg:grid-cols-3  justify-center text-center gap-x-20">
-
-                <div className="col-span-1  sm:py-10">
-                    <h1 className="text-3xl font-bold text-yellow-500">Chocolate</h1>
-                    {chocolateData.map((item, index) => (
-                        <p key={index}>{item.name}</p>
-
-                    ))}
-                </div>
-                <div className="col-span-1  sm:py-10">
-                    <h1 className="text-3xl font-bold text-yellow-500">Dulce de leche</h1>
-                    {dulce.map((item, index) => (
-                        <p key={index}>{item.name}</p>
-
-                    ))}
-                    <h1 className="text-3xl font-bold text-yellow-500 pt-10">Recomends</h1>
-                    {recomends.map((item, index) => (
-                        <p key={index}>{item.name}</p>
-
-                    ))}
-                </div>
-                <div className="col-span-1 sm:py-10 ">
-                    <h1 className="text-3xl font-bold text-yellow-500 pt-20 ">Creams</h1>
-                    {creams.map((item, index) => (
-                        <p key={index}>{item.name}</p>
-
-                    ))}
-                </div>
-                <div className="col-span-1 sm:py-10 ">
-                    <h1 className="text-3xl font-bold text-yellow-500">Fruits</h1>
-                    {fruits.map((item, index) => (
-                        <p key={index}>{item.name}</p>
-
-                    ))}
-                </div>
-
-                <div className="col-span-1 sm:py-10">
-                    <h1 className="text-3xl font-bold text-yellow-500">Sweet Oleasures</h1>
-                    {sweetOleasures.map((item, index) => (
-                        <p key={index}>{item.name}</p>
-
-                    ))}
-                </div>
-                <div className="col-span-1 sm:py-10">
-                    <h1 className="text-3xl font-bold text-yellow-500">Clasic</h1>
-                    {clasic.map((item, index) => (
-                        <p key={index}>{item.name}</p>
-
-                    ))}
-                </div>
-                <div className="col-span-3 pb-7">
-                    <button
-                        className="bg-yellow-500 hover:bg-yellow-800 hover:text-white py-1 px-2 "
-                        onClick={handleBuyNowClick}>Buy now</button>
-                </div>
-                {showBuyOptions && (
-                    <>
-                        {quantityIceCream.map((item, index) => (<>
-
-                            <div key={index} className="flex items-center justify-center pb-10">
-                                <div className=''>
-                                    <img src={item.img}
-                                        className='object-cover lg:w-24 h-20'
-                                    />
-                                </div>
-                                <div className='text-center'>
-                                <Link href="/iceCream/[iceCreamId]" as={`/iceCream/${item.id}`} passHref>
-                                    <p className="text-gray-500 pl-5">{item.name}</p>
-                                    <p className="text-gray-500 pb-2">${item.price}</p>
-                                    </Link>
-                                </div>
-                            </div>
-
-                        </>
-                        ))}
-
-                    </>
-                )}
-
-            </div>z
-
+  return (
+    <>
+      <div className="pl-6 pt-5">
+        <h1 className="text-2xl font-bold mb-4">Create Your Ice Cream</h1>
+        {selections.map((selection) => (
+          <IceCreamSelection
+            key={selection.id}
+            selection={selection}
+            onRemove={() => removeSelection(selection.id)}
+            onSizeChange={handleSizeChange}
+          />
+        ))}
+        <div className="flex justify-between items-center">
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-md mb-4"
+            onClick={addSelection}
+          >
+            + Add Another Pot
+          </button>
+          <Link href="/next-step">
+            <button
+              className={`bg-blue-500 text-white px-4 py-2 rounded-md ${
+                isNextStepButtonDisabled ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={isNextStepButtonDisabled}
+            >
+              Next Step
+            </button>
+          </Link>
         </div>
-        <Footer />
-
-    </>)
+      </div>
+      <Footer />
+    </>
+  );
 }
 
-export default IceCream
+export default IceCream;
