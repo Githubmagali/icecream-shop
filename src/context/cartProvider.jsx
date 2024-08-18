@@ -49,6 +49,8 @@ export const CartProvider = ({ children }) => {
             }
         });
     };
+
+    //parseFloat se almacena como un número decimal y no como una cadena de texto
     useEffect(() => {
         const updateTotalCost = () => {
             const total = cart.reduce((acc, currentItem) => {
@@ -57,7 +59,7 @@ export const CartProvider = ({ children }) => {
             setTotalCost(parseFloat(total.toFixed(2)));
         };
         updateTotalCost();
-        
+     
     }, [cart]);
     
     return (

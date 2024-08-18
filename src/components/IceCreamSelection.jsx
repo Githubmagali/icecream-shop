@@ -7,7 +7,7 @@ function IceCreamSelection({ selection, onSizeChange, onRemove }) {
   const [selectedFlavors, setSelectedFlavors] = useState(
     Array(selection.size === "1kg" ? 4 : 3).fill(null)
   );
-
+  
   const handleFlavorChange = (index, flavor) => {
     const updatedFlavors = [...selectedFlavors];
     updatedFlavors[index] = flavor;

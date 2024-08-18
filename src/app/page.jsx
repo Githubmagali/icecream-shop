@@ -15,7 +15,7 @@ function AnimatedItem({ index, children }) {
     <div
       ref={ref}
       className={`py-10 px-9 rounded-md animate__animated ${inView ? 'animate__fadeInTopRight' : ''}`}
-      style={{ animationDelay: `${index * 0.5}s` }}
+      style={{ animationDelay: `${index * 0.10}s` }}
     >
       {children}
     </div>

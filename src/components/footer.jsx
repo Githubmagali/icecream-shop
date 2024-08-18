@@ -12,7 +12,7 @@ function Footer() {
                     <p className="text-gray-400 text-xs">Personal data protection</p>
                 </div>
                 <div className="flex-1">
-                <p className="text-gray-400 flex items-center justify-center text-xs ">&#169;Copyright Reserved</p>
+                <p className="text-gray-400 flex items-center justify-center text-xs ">&#169;Magali Victoria Fernandez</p>
                 </div>
              
 
