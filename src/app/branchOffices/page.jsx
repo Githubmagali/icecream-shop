@@ -28,6 +28,7 @@ function StorePage() {
         <>
             <div className='flex flex-col items-center justify-center pb-10 lg:px-20 px-10'>
                     <h1 className="text-center text-4xl text-yellow-600 text-title pt-11 pb-4">{local.name} </h1>
+                    <div className='flex flex-col items-center justify-center pb-4'>
                     <div className='flex space-x-64 '>
                         <button onClick={handleClick} className='py-2 px-2 bg-gray-200 hover:bg-gray-400'>
                             <i className='bx bx-left-arrow' ></i>
@@ -37,8 +38,9 @@ function StorePage() {
                         </button>
                     </div>
                     <h2 className='text-xl pb-3'> {local.address}</h2>
-                    <p className='text-sm '><i className='bx bx-hourglass text-gray-400 pl-2'></i>{local.hor}</p>
-                    <p className='text-sm'><i className='bx bxs-phone-call text-gray-400 pl-2' ></i>{local.num}</p>
+                    <p className='text-sm sm:text-xl '><i className='bx bx-hourglass text-gray-400 pl-2'></i>{local.hor}</p>
+                    <p className='text-sm sm:text-xl pb-4'><i className='bx bxs-phone-call text-gray-400 pl-2' ></i>{local.num}</p>
+                    </div>
                     <iframe
                         src={local.url}
                         className="w-full h-96"
