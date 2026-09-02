@@ -18,6 +18,10 @@
     font-size: 58px;
 }
 
+.btn-ice-cream{
+    background-color: #c68f00;
+}
+
 @media(max-width: 768px){
     .logo-font{
         font-size: 40px;

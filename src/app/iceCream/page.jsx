@@ -67,14 +67,14 @@ function IceCream() {
         ))}
         <div className="flex justify-between items-center">
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-md mb-4"
+            className="btn-ice-cream text-white px-4 py-2 rounded-md mb-4"
             onClick={addSelection}
           >
             + Add Another Pot
           </button>
           <Link href="/shipping">
             <button
-              className={`bg-blue-500 text-white px-4 py-2 rounded-md ${
+              className={`btn-ice-cream text-white px-4 py-2 rounded-md ${
                 isNextStepButtonDisabled ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={isNextStepButtonDisabled}
