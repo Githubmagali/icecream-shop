@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/context/cartProvider";
-import data from "@/assets/slider.json";
-import Footer from "@/components/footer";
 import IceCreamSelection from "@/components/IceCreamSelection";
 import sizeMapping from "@/utils/sizeMapping";
 
@@ -57,8 +55,8 @@ function IceCream() {
 
   return (
     <>
-      <div className="pl-6 pt-5">
-        <h1 className="text-2xl font-bold mb-4">Create Your Ice Cream</h1>
+      <div className="px-6 pt-5">
+        <h1 className="text-2xl font-bold mb-4 text-title">Create Your Ice Cream</h1>
         {selections.map((selection) => (
           <IceCreamSelection
             key={selection.id}
@@ -74,7 +72,7 @@ function IceCream() {
           >
             + Add Another Pot
           </button>
-          <Link href="/next-step">
+          <Link href="/shipping">
             <button
               className={`bg-blue-500 text-white px-4 py-2 rounded-md ${
                 isNextStepButtonDisabled ? "opacity-50 cursor-not-allowed" : ""
@@ -86,7 +84,6 @@ function IceCream() {
           </Link>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

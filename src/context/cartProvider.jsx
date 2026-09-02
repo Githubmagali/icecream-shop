@@ -1,21 +1,24 @@
 "use client"
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, { createContext, useState, useContext, useEffect, useRef } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState(() => {
-       
-        const savedCart = localStorage.getItem('cart');
-        return savedCart ? JSON.parse(savedCart) : [];
-    });
+    const [cart, setCart] = useState([]);
     const [totalCost, setTotalCost] = useState(0);
+    const isLoaded = useRef(false);
+
+    // Carga inicial: solo en el cliente, después del primer render
+    useEffect(() => {
+        const savedCart = localStorage.getItem('cart');
+        if (savedCart) setCart(JSON.parse(savedCart));
+        isLoaded.current = true;
+    }, []);
 
     const getItemQuantity = (itemId) => {
         const item = cart.find((cartItem) => cartItem.id === itemId);
         return item ? item.quantity : 0;
     };
-
 
     const addToCart = (item) => {
         setCart((prevCart) => {
@@ -27,14 +30,11 @@ export const CartProvider = ({ children }) => {
                         : cartItem
                 );
             } else {
-                return [...prevCart, { ...item, quantity: 1 }]
+                return [...prevCart, { ...item, quantity: 1 }];
             }
         });
     };
 
-
-
-    
     const removeFromCart = (itemId) => {
         setCart((prevCart) => {
             const itemExists = prevCart.find((cartItem) => cartItem.id === itemId);
@@ -50,30 +50,28 @@ export const CartProvider = ({ children }) => {
         });
     };
 
-    //parseFloat se almacena como un número decimal y no como una cadena de texto
+    // Guardado + total. parseFloat para que quede número y no string.
     useEffect(() => {
-        const updateTotalCost = () => {
-            const total = cart.reduce((acc, currentItem) => {
-                return acc + currentItem.price * currentItem.quantity;
-            }, 0);
-            setTotalCost(parseFloat(total.toFixed(2)));
-        };
-        updateTotalCost();
-     
+        const total = cart.reduce((acc, currentItem) => {
+            return acc + currentItem.price * currentItem.quantity;
+        }, 0);
+        setTotalCost(parseFloat(total.toFixed(2)));
+
+        // No guardar antes de haber leído, o pisamos el carrito guardado con []
+        if (isLoaded.current) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
     }, [cart]);
-    
+
     return (
         <CartContext.Provider
-            value={{ cart, addToCart,removeFromCart, totalCost, getItemQuantity}}
+            value={{ cart, addToCart, removeFromCart, totalCost, getItemQuantity }}
         >
             {children}
         </CartContext.Provider>
     );
-
 };
 
 export const useCart = () => {
     return useContext(CartContext);
-  };
-
-  
+};

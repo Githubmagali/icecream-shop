@@ -15,17 +15,16 @@ function Navbar() {
 
 
     return (<>
-        <div className="flex justify-between lg:py-3 lg:px-8 w-full shadow-2xl shadow-slate-100">
-            <Link href="/" className={clsx('text-3xl pt-4 text-yellow-800',
+        <div className="flex justify-between lg:py-3 lg:px-8 w-full shadow-2xl shadow-slate-100 px-2">
+            <Link href="/" className={clsx('logo-font text-yellow-800',
                 { 'font-bold': pathname === "/", },
             )}>Ice cream</Link>
 
             <div className="hidden sm:flex md:flex flex gap-x-4 py-5">
-                <Link href="/contact"
-                    className={`hover:text-yellow-800 ${pathname === "/contact" ? 'font-bold text-yellow-800' : ''}`}
-                >Contact </Link>
+
                 <Link href="/branchOffices"
-                    className={`hover:text-yellow-800 ${pathname === "/branchOffices" ? 'font-bold text-yellow-800' : ''}`}>Branch offices</Link>
+                    className={`hover:text-yellow-800 ${pathname === "/branchOffices" ? 'font-bold text-yellow-800' : ''}`}>
+                     Stores</Link>
                 <Link href="/iceCream"
                     className={`hover:text-yellow-800 ${pathname === "/iceCream" ? 'font-bold text-yellow-800' : ''}`}
                 >Ice cream</Link>
@@ -43,7 +42,7 @@ function Navbar() {
             </div>
             {/* Icono de hamburguesa para pantallas pequeñas */}
             <div
-                className="sm:hidden md:hidden cursor-pointer text-3xl text-yellow-800 pr-9"
+                className="sm:hidden md:hidden cursor-pointer text-3xl text-yellow-800 "
                 onClick={() => setMenuVisible(!menuVisible)}
             >    <Link href="/shipping" className="text-xl pr-3"><i className='bx bxs-cart'></i>{totalItems}</Link>
                 &#9776;
@@ -53,11 +52,9 @@ function Navbar() {
         {/* Menú para pantallas pequeñas */}
         {menuVisible && (
             <div className="flex flex-col sm:flex-row md:flex-grow gap-y-4 pl-3">
-                <Link href="/contact" className="hover:text-yellow-800">
-                    Contact
-                </Link>
+    
                 <Link href="/branchOffices" className="hover:text-yellow-800">
-                    Branch offices
+                   Stores
                 </Link>
                 <Link href="/iceCream" className="hover:text-yellow-800">
                     Ice cream

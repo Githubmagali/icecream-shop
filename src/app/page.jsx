@@ -2,8 +2,7 @@
 import SwiperPage from '@/app/swiper/page'
 import { useInView } from 'react-intersection-observer';
 import data from '@/assets/slider2.json'
-import Footer from '@/components/footer';
-
+import ResendPage from '@/app/contact/page.jsx';
 
 function AnimatedItem({ index, children }) {
 
@@ -50,11 +49,11 @@ function HomePage() {
     <>
       <SwiperPage />
       <div className='flex items-center justify-center gap-x-10 py-10 text-yellow-700'>
-        <i className='bx bxl-instagram lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4'></i>
-        <i className='bx bxl-facebook-circle lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4' ></i>
-        <i className='bx bxl-gmail lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4' ></i>
-        <i className='bx bxl-tiktok lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4'></i>
-        <i className='bx bxl-whatsapp lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4' ></i>
+        <i className='bx bxl-instagram text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4'></i>
+        <i className='bx bxl-facebook-circle text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4' ></i>
+        <i className='bx bxl-gmail text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4' ></i>
+        <i className='bx bxl-tiktok text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4'></i>
+        <i className='bx bxl-whatsapp text-3xl lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4' ></i>
       </div>
 
       <h1 className='flex items-center justify-center text-center text-5xl pb-5 text-yellow-500'>For the tea</h1>
@@ -91,7 +90,8 @@ function HomePage() {
           </AnimatedItem>
         ))}
       </div>
-      <Footer />
+      <ResendPage/>
+
     </>
 
   )

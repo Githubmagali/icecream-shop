@@ -1,74 +1,145 @@
 "use client"
-import { useCart } from "../../context/cartProvider";
-import { useState } from "react";
-import Delivery from './delivery'
-import TakeAway from './takeAway'
-import SelectSucursal from '@/app/shipping/select'
+import { useState } from "react"
+import { useCart } from "@/context/cartProvider"
 
+function OrderPage() {
+    const { cartItems, totalCost, cart } = useCart()
+    const [deliveryType, setDeliveryType] = useState(null)
+    const [branch, setBranch] = useState("")
+    const [form, setForm] = useState({
+        email: "",
+        fullname: "",
+        phone: "",
+        dni: "",
+        observations: "",
+    })
 
+    const handleChange = (e) =>
+        setForm({ ...form, [e.target.name]: e.target.value })
 
-function Shipping() {
-    const { cart, totalCost } = useCart();
-    const [selectedOption, setSelectedOption] = useState(null);
-
-    const handleOptionSelect = (option) => {
-        setSelectedOption(option);
-    };
-
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log({ ...form, branch, deliveryType })
+    }
 
     return (
-        <>
-            <div className="flex flex-col items-center justify-center gap-y-4">
+        <div className="flex flex-col items-center w-full px-4 py-10">
+            <h1 className="text-5xl text-center">Order page</h1>
 
-                <h1 className="text-center text-5xl pt-3">Order page</h1>
-                <h2 className="text-center">Branches with Delivery</h2>
-                <SelectSucursal />
+            <p className="mt-6">Branches with Delivery</p>
+            <select
+                value={branch}
+                onChange={(e) => setBranch(e.target.value)}
+                className="mt-2 border rounded-md px-4 py-1"
+            >
+                <option value="">Selected</option>
+                {/* tus sucursales */}
+            </select>
 
-                <div className="text-center text-xl font-bold">Your cart</div>
-                {cart.length > 0 ? (
-                    <ul className="lg:w-96 lg:h-30 overflow-scroll bg-slate-50">
-                        {cart.map((item, index) => (
-                            <li key={index} className="text-center py-3">
-                                {item.name.charAt(0).toUpperCase() + item.name.slice(1)} -{" "}
-                                {item.quantity} x ${item.price}
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <p className="">No items in cart.</p>
-                )}
-                <p className="text-xl">Total Cost: ${totalCost}</p>
-                <h2 className="text-center text-yellow-800">WE WILL TAKE IT TO YOU</h2>
-                <div className="flex items-center gap-x-60">
-                    <button
-                        onClick={() => handleOptionSelect('TakeAway')}
-                        className={`text-center text-xl bg-gray-400 hover:bg-gray-700 py-2 px-1 rounded-md  text-white ${selectedOption === 'TakeAway' ? 'bg-gray-700' : ''
-                            }`}
-                    >
-                        Take away
-                    </button>
-                    <button
-                        onClick={() => handleOptionSelect('Delivery')}
-                        className={`text-center text-xl bg-gray-400 hover:bg-gray-700  py-2 px-1 rounded-md text-white ${selectedOption === 'Delivery' ? 'bg-gray-700' : ''
-                            }`}
-                    >
-                        Delivery
-                    </button>
-                </div>
+            <h2 className="text-xl font-bold mt-8">Your cart</h2>
+            <div className="w-full max-w-sm mt-3 flex flex-col gap-y-2">
+                {cart?.map((item) => (
+                    <div key={item.id} className="bg-gray-50 text-center py-3 rounded-md">
+                        {item.name} - {item.quantity} x ${item.price}
+                    </div>
+                ))}
             </div>
-            <div className="float-left px-56">
-            {selectedOption === 'TakeAway' && <TakeAway />}
+
+            <p className="text-xl mt-6">
+                Total Cost: ${cart?.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
+            </p>
+
+            {deliveryType === "delivery" && (
+                <p className="text-amber-800 text-sm mt-3">WE WILL TAKE IT TO YOU</p>
+            )}
+
+            <div className="flex gap-x-6 mt-6">
+                <button
+                    type="button"
+                    onClick={() => setDeliveryType("takeaway")}
+                    className={`px-4 py-2 rounded-md text-white ${deliveryType === "takeaway" ? "bg-gray-600" : "bg-gray-400 hover:bg-gray-500"
+                        }`}
+                >
+                    Take away
+                </button>
+                <button
+                    type="button"
+                    onClick={() => setDeliveryType("delivery")}
+                    className={`px-4 py-2 rounded-md text-white ${deliveryType === "delivery" ? "bg-gray-600" : "bg-gray-400 hover:bg-gray-500"
+                        }`}
+                >
+                    Delivery
+                </button>
             </div>
-           <div className="float-right px-56">
-              {selectedOption === 'Delivery' && <Delivery />}
-              </div>
-          
-          
 
+            <form
+                onSubmit={handleSubmit}
+                className="flex flex-col items-center gap-y-3 w-full max-w-sm mt-10"
+            >
+                <label htmlFor="email" className="text-center">Email</label>
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="Email"
+                    className="w-full border rounded-md px-3 py-1"
+                />
 
-        </>)
+                <label htmlFor="fullname" className="text-center">Fullname *</label>
+                <input
+                    id="fullname"
+                    name="fullname"
+                    value={form.fullname}
+                    onChange={handleChange}
+                    placeholder="Fullname"
+                    required
+                    className="w-full border rounded-md px-3 py-1"
+                />
 
+                <label htmlFor="phone" className="text-center">Phone *</label>
+                <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="Phone"
+                    required
+                    className="w-full border rounded-md px-3 py-1"
+                />
 
+                <label htmlFor="dni" className="text-center">DNI *</label>
+                <input
+                    id="dni"
+                    name="dni"
+                    value={form.dni}
+                    onChange={handleChange}
+                    placeholder="DNI"
+                    required
+                    className="w-full border rounded-md px-3 py-1"
+                />
+
+                <label htmlFor="observations" className="text-center">Observations</label>
+                <input
+                    id="observations"
+                    name="observations"
+                    value={form.observations}
+                    onChange={handleChange}
+                    placeholder="observations"
+                    className="w-full border rounded-md px-3 py-1"
+                />
+
+                <button
+                    type="submit"
+                    className="bg-slate-600 hover:bg-slate-700 text-white px-6 py-1 rounded-md mt-4"
+                >
+                    Send
+                </button>
+            </form>
+        </div>
+    )
 }
 
-export default Shipping
+export default OrderPage

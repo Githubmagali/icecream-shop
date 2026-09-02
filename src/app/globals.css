@@ -2,9 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
 @import "boxicons/css/boxicons.min.css";
 @import 'animate.css';
+
+
+.text-title{
+    font-family: monospace, sans-serif;
+}
+
+.logo-font{
+    font-family: fantasy, sans-serif;
+    font-size: 58px;
+}
+
+@media(max-width: 768px){
+    .logo-font{
+        font-size: 40px;
+    }
+}
