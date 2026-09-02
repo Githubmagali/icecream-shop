@@ -3,17 +3,21 @@
     {
        "id":"1",
        "name":"Chocolate white",
-       "img":"chocolate-white.jpg" 
+       "img":"white-back.png", 
+       "img2":"chocolate-white.jpg"
+       
     },
     {
         "id":"2",
         "name":"chocolate milk",
-        "img":"chocolate-milk.jpg" 
+        "img":"chocolate-milk.jpg",
+        "img2":"milk-back.png"
      },
      {
         "id":"3",
         "name":"chocolate black and white",
-        "img":"chocolate-blackandwhite.png" 
+        "img":"blackandwhite.png",
+        "img2":"chocolate-blackandwhite.png"
      }
    ],
 "forTheTea":[

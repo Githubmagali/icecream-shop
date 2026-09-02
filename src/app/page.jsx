@@ -93,15 +93,9 @@ function HomePage() {
       <h1 className='flex items-center justify-center text-center text-5xl pb-5 text-yellow-500'>Chocolates</h1>
 
       <div className='lg:grid lg:grid-cols-3'>
-        {imgs.map((imagen, index) => (
+        {imgs.map((item, index) => (
           <AnimatedItem key={index} index={index}>
-            <div>
-              <div className="flex-1 px-2">
-                <img src={imagen.img}
-                  alt={imagen.name}
-                  className="w-full h-72 object-cover rounded-md shadow-2xl shadow-gray-400" />
-              </div>
-            </div>
+             <FlipCard front={item.img} back={item.img2} alt={item.name} />
           </AnimatedItem>
         ))}
       </div>
