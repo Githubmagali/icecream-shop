@@ -71,11 +71,11 @@ function HomePage() {
     <>
       <SwiperPage />
       <div className='flex items-center justify-center gap-x-10 py-10 text-yellow-700'>
-        <i className='bx bxl-instagram text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4'></i>
-        <i className='bx bxl-facebook-circle text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4' ></i>
-        <i className='bx bxl-gmail text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4' ></i>
-        <i className='bx bxl-tiktok text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4'></i>
-        <i className='bx bxl-whatsapp text-3xl lg:text-5xl cursor-pointer transition-transform transform hover:-translate-y-4' ></i>
+        <i className='bx bxl-instagram text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:text-yellow-400'></i>
+        <i className='bx bxl-facebook-circle text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:text-yellow-400' ></i>
+        <i className='bx bxl-gmail text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:text-yellow-400' ></i>
+        <i className='bx bxl-tiktok text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:text-yellow-400'></i>
+        <i className='bx bxl-whatsapp text-3xl lg:text-5xl cursor-pointer transition-transform transform hover:text-yellow-400' ></i>
       </div>
 
       <h1 className='flex items-center justify-center text-center text-5xl pb-5 text-yellow-500'>For the tea</h1>
