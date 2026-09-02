@@ -4,7 +4,7 @@ import { useCart } from "@/context/cartProvider"
 import { location } from "@/assets/offices"
 
 function OrderPage() {
-    const { cartItems, totalCost, cart } = useCart()
+    const { cart } = useCart()
     const [deliveryType, setDeliveryType] = useState(null)
     const [branch, setBranch] = useState("")
     const [form, setForm] = useState({
@@ -12,6 +12,8 @@ function OrderPage() {
         fullname: "",
         phone: "",
         dni: "",
+        address: "",
+        depto: "",
         observations: "",
     })
 
@@ -26,20 +28,6 @@ function OrderPage() {
     return (
         <div className="flex flex-col items-center w-full px-4 py-10">
             <h1 className="text-5xl text-center">Order page</h1>
-
-            <p className="mt-6">Branches with Delivery</p>
-            <select
-                value={branch}
-                onChange={(e) => setBranch(e.target.value)}
-                className="mt-2 border rounded-md px-4 py-1"
-            >
-                <option value="">Selected</option>
-                {location.map((local, index) => (
-                    <option key={local.id ?? index} value={local.name}>
-                        {local.name}
-                    </option>
-                ))}
-            </select>
 
             <h2 className="text-xl font-bold mt-8">Your cart</h2>
             <div className="w-full max-w-sm mt-3 flex flex-col gap-y-2">
@@ -81,6 +69,25 @@ function OrderPage() {
                 onSubmit={handleSubmit}
                 className="flex flex-col items-center gap-y-3 w-full max-w-sm mt-10"
             >
+                {deliveryType === "takeaway" && (
+                    <>
+                        <label htmlFor="branch" className="text-center">Store</label>
+                        <select
+                            id="branch"
+                            value={branch}
+                            onChange={(e) => setBranch(e.target.value)}
+                            required
+                            className="border rounded-md px-4 py-1"
+                        >
+                            <option value="">Selected</option>
+                            {location.map((local, index) => (
+                                <option key={local.id ?? index} value={local.name}>
+                                    {local.name}
+                                </option>
+                            ))}
+                        </select>
+                    </>
+                )}
                 <label htmlFor="email" className="text-center">Email</label>
                 <input
                     id="email"
@@ -125,6 +132,30 @@ function OrderPage() {
                     required
                     className="w-full border rounded-md px-3 py-1"
                 />
+                {deliveryType === "delivery" && (
+                    <>
+                        <label htmlFor="address" className="text-center">Address *</label>
+                        <input
+                            id="address"
+                            name="address"
+                            value={form.address}
+                            onChange={handleChange}
+                            placeholder="Address"
+                            required
+                            className="w-full border rounded-md px-3 py-1"
+                        />
+
+                        <label htmlFor="depto" className="text-center">Depto</label>
+                        <input
+                            id="depto"
+                            name="depto"
+                            value={form.depto}
+                            onChange={handleChange}
+                            placeholder="Depto"
+                            className="w-full border rounded-md px-3 py-1"
+                        />
+                    </>
+                )}
 
                 <label htmlFor="observations" className="text-center">Observations</label>
                 <input
@@ -138,7 +169,8 @@ function OrderPage() {
 
                 <button
                     type="submit"
-                    className="bg-slate-600 hover:bg-slate-700 text-white px-6 py-1 rounded-md mt-4"
+                    disabled={!deliveryType}
+                    className="bg-slate-600 hover:bg-slate-700 disabled:bg-gray-300 text-white px-6 py-1 rounded-md mt-4"
                 >
                     Send
                 </button>
