@@ -38,6 +38,27 @@ function AnimatedItem2({ index, children }) {
   );
 }
 
+function FlipCard({ front, back, alt }) {
+  return (
+    <div className="group [perspective:1000px] h-72">
+      <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+        {/* Cara frontal */}
+        <img
+          src={front}
+          alt={alt}
+          className="absolute inset-0 w-full h-full object-cover rounded-md shadow-2xl shadow-gray-400 [backface-visibility:hidden]"
+        />
+        {/* Cara trasera */}
+        <img
+          src={back}
+          alt={alt}
+          className="absolute inset-0 w-full h-full object-cover rounded-md shadow-2xl shadow-gray-400 [backface-visibility:hidden] [transform:rotateY(180deg)]"
+        />
+      </div>
+    </div>
+  )
+}
+
 
 
 
@@ -59,22 +80,15 @@ function HomePage() {
 
       <h1 className='flex items-center justify-center text-center text-5xl pb-5 text-yellow-500'>For the tea</h1>
       <div className='lg:grid lg:grid-cols-3'>
-      {teaImg.map((item, index)=>(
-        <AnimatedItem2 key={index} index={index}>
-          <div>
-            <div className='flex-1 px-2'>
-              <img 
-              src={item.img}
-              alt={item.name}
-              className="w-full h-72 object-cover rounded-md shadow-2xl shadow-gray-400"
-              />
+        {teaImg.map((item, index) => (
+          <AnimatedItem2 key={index} index={index}>
+            <div className="px-2">
+              <FlipCard front={item.img} back={item.img2} alt={item.name} />
             </div>
-          </div>
-
-        </AnimatedItem2>
-      ))}
+          </AnimatedItem2>
+        ))}
       </div>
-      
+
 
       <h1 className='flex items-center justify-center text-center text-5xl pb-5 text-yellow-500'>Chocolates</h1>
 
@@ -91,7 +105,7 @@ function HomePage() {
           </AnimatedItem>
         ))}
       </div>
-      <ResendPage/>
+      <ResendPage />
 
       <StorePage />
 

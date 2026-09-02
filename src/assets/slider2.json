@@ -20,19 +20,22 @@
    {
       "id":"1",
       "name":"cheesecake",
-      "img":"cheesecake.png"
+      "img":"cheesecake.png",
+      "img2":"chese-back.png"
 
    },
    {
       "id":"2",
       "name":"cheesecake fruit",
-      "img":"cheesecake-fruit.png"
+      "img":"cheesecake-fruit.png",
+      "img2":"frutos-back.png"
 
    },
    {
       "id":"3",
       "name":"Lemon pie",
-      "img":"lemon-pie.png"
+      "img":"lemon-pie.png",
+      "img2":"lemon-back.png"
 
    }
 ]

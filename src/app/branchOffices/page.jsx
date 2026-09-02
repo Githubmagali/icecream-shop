@@ -46,7 +46,7 @@ function StorePage() {
                         className="w-full h-96"
                         allowFullScreen={true}
                         loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
+                        referrerPolicy="no-referrer-when-downgrade" //Controla la info que manda tu sitio cunado alguien navega desde el hacia otro
                     />
             </div>
         </>
