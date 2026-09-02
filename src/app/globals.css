@@ -1,12 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
 @import "boxicons/css/boxicons.min.css";
 @import 'animate.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 
 .text-title{

@@ -47,7 +47,7 @@ function Navbar() {
 
         {/* Menú para pantallas pequeñas */}
         {menuVisible && (
-            <div className="flex flex-col sm:flex-row md:flex-grow gap-y-4 pl-3">
+            <div className="flex flex-col sm:flex-row md:flex-grow gap-y-4 pl-3 pb-4">
     
                 <Link href="/iceCream" className="hover:text-yellow-800">
                     Ice cream
