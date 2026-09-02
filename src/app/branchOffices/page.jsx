@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { location } from '@/assets/offices'
 
-function BranchOffices() {
+function StorePage() {
     const [index, setIndex] = useState(0);
     const hasNext = index < location.length - 1;
     const hasBefore = index > 0;
@@ -51,4 +51,4 @@ function BranchOffices() {
     );
 }
 
-export default BranchOffices
+export default StorePage;

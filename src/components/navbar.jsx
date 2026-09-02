@@ -20,11 +20,7 @@ function Navbar() {
                 { 'font-bold': pathname === "/", },
             )}>Ice cream</Link>
 
-            <div className="hidden sm:flex md:flex flex gap-x-4 py-5">
-
-                <Link href="/branchOffices"
-                    className={`hover:text-yellow-800 ${pathname === "/branchOffices" ? 'font-bold text-yellow-800' : ''}`}>
-                     Stores</Link>
+            <div className="hidden sm:flex md:flex flex  items-center gap-x-4 py-5">
                 <Link href="/iceCream"
                     className={`hover:text-yellow-800 ${pathname === "/iceCream" ? 'font-bold text-yellow-800' : ''}`}
                 >Ice cream</Link>
@@ -53,9 +49,6 @@ function Navbar() {
         {menuVisible && (
             <div className="flex flex-col sm:flex-row md:flex-grow gap-y-4 pl-3">
     
-                <Link href="/branchOffices" className="hover:text-yellow-800">
-                   Stores
-                </Link>
                 <Link href="/iceCream" className="hover:text-yellow-800">
                     Ice cream
                 </Link>

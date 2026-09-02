@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import { useCart } from "@/context/cartProvider"
+import { location } from "@/assets/offices"
 
 function OrderPage() {
     const { cartItems, totalCost, cart } = useCart()
@@ -33,7 +34,11 @@ function OrderPage() {
                 className="mt-2 border rounded-md px-4 py-1"
             >
                 <option value="">Selected</option>
-                {/* tus sucursales */}
+                {location.map((local, index) => (
+                    <option key={local.id ?? index} value={local.name}>
+                        {local.name}
+                    </option>
+                ))}
             </select>
 
             <h2 className="text-xl font-bold mt-8">Your cart</h2>

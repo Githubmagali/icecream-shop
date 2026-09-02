@@ -3,6 +3,7 @@ import SwiperPage from '@/app/swiper/page'
 import { useInView } from 'react-intersection-observer';
 import data from '@/assets/slider2.json'
 import ResendPage from '@/app/contact/page.jsx';
+import StorePage from '@/app/branchOffices/page.jsx';
 
 function AnimatedItem({ index, children }) {
 
@@ -91,6 +92,8 @@ function HomePage() {
         ))}
       </div>
       <ResendPage/>
+
+      <StorePage />
 
     </>
 
