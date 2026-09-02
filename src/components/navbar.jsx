@@ -15,7 +15,7 @@ function Navbar() {
 
 
     return (<>
-        <div className="flex justify-between lg:py-3 lg:px-8 w-full shadow-2xl shadow-slate-100 px-2">
+        <div className="flex justify-between items-center lg:py-3 lg:px-8 w-full shadow-2xl shadow-slate-100 px-2">
             <Link href="/" className={clsx('logo-font text-yellow-800',
                 { 'font-bold': pathname === "/", },
             )}>Ice cream</Link>
