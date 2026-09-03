@@ -40,14 +40,14 @@ function Navbar() {
             <div
                 className="sm:hidden md:hidden cursor-pointer text-3xl text-yellow-800 "
                 onClick={() => setMenuVisible(!menuVisible)}
-            >    <Link href="/shipping" className="text-xl pr-3"><i className='bx bxs-cart'></i>{totalItems}</Link>
+            >    <Link href="/shipping" className="pr-5"><i className='bx bxs-cart'></i>{totalItems}</Link>
                 &#9776;
             </div>
         </div>
 
         {/* Menú para pantallas pequeñas */}
         {menuVisible && (
-            <div className="flex flex-col sm:flex-row md:flex-grow gap-y-4 pl-3 pb-4">
+            <div className="flex flex-col sm:flex-row md:flex-grow gap-y-7 pl-3 pt-2 pb-4 text-lg">
     
                 <Link href="/iceCream" className="hover:text-yellow-800">
                     Ice cream
