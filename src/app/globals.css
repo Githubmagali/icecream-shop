@@ -23,6 +23,24 @@
     background-color: #c68f00;
 }
 
+/*img */
+
+.separador {
+  position: relative;
+  height: 60vh;              /* alto de la banda */
+  clip-path: inset(0);       /* clave: recorta el fixed adentro */
+  overflow: hidden;
+}
+
+.separador__bg {
+  position: fixed;
+  inset: 0;
+  background-image: url('../../public/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
 @media(max-width: 768px){
     .logo-font{
         font-size: 40px;
