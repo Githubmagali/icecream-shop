@@ -78,7 +78,7 @@ function HomePage() {
         <i className='bx bxl-whatsapp text-3xl lg:text-5xl cursor-pointer transition-transform transform hover:text-yellow-400' ></i>
       </div>
 
-      <h1 className='flex items-center justify-center text-center text-5xl pb-5 text-yellow-500'>For the tea</h1>
+      <h1 className='flex items-center justify-center text-center text-3xl lg:text-5xl pb-5 text-yellow-500'>For the tea</h1>
       <div className='lg:grid lg:grid-cols-3'>
         {teaImg.map((item, index) => (
           <AnimatedItem2 key={index} index={index}>
@@ -90,7 +90,7 @@ function HomePage() {
       </div>
 
 
-      <h1 className='flex items-center justify-center text-center text-5xl pb-5 text-yellow-500'>Chocolates</h1>
+      <h1 className='flex items-center justify-center text-center  text-3xl lg:text-5xl py-5 text-yellow-500'>Chocolates</h1>
 
       <div className='lg:grid lg:grid-cols-3'>
         {imgs.map((item, index) => (

@@ -7,7 +7,7 @@ function ForTheTea() {
 
     return (
         <>
-            <h1 className="text-center text-5xl py-10 text-title">FOR THE TEA</h1>
+            <h1 className="text-center text-3xl lg:text-5xl py-10 text-title">FOR THE TEA</h1>
             <div className="flex flex-col items-center justify-center">
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 text-center px-6 lg:px-20 max-w-6xl">
                     {items.map((item, index) => (

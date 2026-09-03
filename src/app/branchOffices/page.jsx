@@ -27,7 +27,7 @@ function StorePage() {
     return (
         <>
             <div className='flex flex-col items-center justify-center pb-10 lg:px-20 px-10'>
-                    <h1 className="text-center text-4xl text-yellow-600 text-title pt-11 pb-4">{local.name} </h1>
+                    <h1 className="text-center  text-3xl lg:text-4xl text-yellow-600 text-title pt-11 pb-4">{local.name} </h1>
                     <div className='flex flex-col items-center justify-center pb-4'>
                     <div className='flex space-x-64 '>
                         <button onClick={handleClick} className='py-2 px-2 bg-gray-200 hover:bg-gray-400'>
