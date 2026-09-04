@@ -20,8 +20,7 @@ function HomeSwiperPage() {
           640: { slidesPerView: 2, spaceBetween: 24 },
           1024: { slidesPerView: 4, spaceBetween: 32 },
         }}
-        navigation
-        modules={[Navigation]}
+
       >
         {items.map((item) => (
           <SwiperSlide key={item.id}>
