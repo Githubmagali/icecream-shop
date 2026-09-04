@@ -6,22 +6,7 @@ import ResendPage from '@/app/contact/page.jsx';
 import StorePage from '@/app/branchOffices/page.jsx';
 import HomeSwiperPage from '@/app/swipperHome/page.jsx';
 
-function AnimatedItem({ index, children }) {
 
-  const [ref, inView] = useInView({
-    triggerOnce: true, // La animación solo se activa una vez
-  });
-
-  return (
-    <div
-      ref={ref}
-      className={`py-10 px-9 rounded-md animate__animated ${inView ? 'animate__fadeInTopRight' : ''}`}
-      style={{ animationDelay: `${index * 0.10}s` }}
-    >
-      {children}
-    </div>
-  );
-}
 function AnimatedItem2({ index, children }) {
 
   const [ref, inView] = useInView({
@@ -32,7 +17,7 @@ function AnimatedItem2({ index, children }) {
     <div
       ref={ref}
       className={`py-10 px-9 rounded-md animate__animated ${inView ? 'animate__fadeIn' : ''}`}
-      style={{ animationDelay: `${index * 0.5}s` }}
+      style={{ animationDelay: `${index * 0.3}s` }}
     >
       {children}
     </div>
