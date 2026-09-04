@@ -97,9 +97,9 @@ function HomePage() {
 
       <div className='lg:grid lg:grid-cols-3'>
         {imgs.map((item, index) => (
-          <AnimatedItem key={index} index={index}>
+          <AnimatedItem2 key={index} index={index}>
             <FlipCard front={item.img} back={item.img2} alt={item.name} />
-          </AnimatedItem>
+          </AnimatedItem2>
         ))}
       </div>
       <ResendPage />
