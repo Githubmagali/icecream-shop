@@ -23,6 +23,15 @@
     background-color: #c68f00;
 }
 
+.text-label{
+   background: #9a7568b0;;
+   color: white;
+   width: 321px;
+   height: 59px;
+   font-size: 27px;
+   padding: 9px;
+}
+
 /*img */
 
 .separador {
