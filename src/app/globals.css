@@ -32,6 +32,8 @@
    padding: 9px;
 }
 
+
+
 /*img */
 
 .separador {
@@ -53,5 +55,8 @@
 @media(max-width: 768px){
     .logo-font{
         font-size: 40px;
+    }
+    .flex-mobile-btn{
+        flex-direction: column;
     }
 }

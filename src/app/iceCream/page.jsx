@@ -99,7 +99,7 @@ function IceCream() {
 
       {error && <p className="text-red-600 mb-3">{error}</p>}
 
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center flex-mobile-btn">
         <button
           className="btn-ice-cream text-white px-4 py-2 rounded-md mb-4"
           onClick={addSelection}
