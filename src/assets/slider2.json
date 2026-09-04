@@ -41,6 +41,27 @@
       "img":"lemon-pie.png",
       "img2":"lemon-back.png"
 
+   },
+     {
+      "id":"4",
+      "name":"Cheesecake chocolate",
+      "img":"cheesecake-chocolate.png",
+      "img2":"chebg.jpg"
+
+   },
+   {
+      "id":"5",
+      "name":"Apple cake",
+      "img":"appleCake.jpg",
+      "img2":"applebg.png"
+
+   },
+   {
+      "id":"6",
+      "name":"Muffins",
+      "img":"muffins.jpg",
+      "img2":"muffbg.png"
+
    }
 ]
 

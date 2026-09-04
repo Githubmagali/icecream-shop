@@ -84,7 +84,22 @@ export const location = [{
     price: 6,
     soldOut: false,
     description: "Croassant"
+},{
+    id:9,
+    name:"Cheesecake chocolate",
+    img:"/chescho.jpg",
+    price: 20,
+    soldOut: false,
+    description: "Cheesecake chocolate"
+},{
+    id:10,
+    name:"Apple cake",
+    img:"/appleCake.jpg",
+    price: 20,
+    soldOut: false,
+    description: "Apple cake"
 }
+
 
 
 ]
