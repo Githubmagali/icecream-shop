@@ -5,7 +5,7 @@ import { useCart } from "@/context/cartProvider";
 import IceCreamSelection from "@/components/IceCreamSelection";
 import sizeMapping from "@/utils/sizeMapping";
 
-const MAX_FLAVORS = { "1/4kg": 2, "1/2kg": 3, "1kg": 4 };
+const MAX_FLAVORS = { "1/4kg": 3, "1/2kg": 3, "1kg": 4 };
 
 const makeSelection = (sizeData = sizeMapping.small) => ({
   uid: crypto.randomUUID(),
