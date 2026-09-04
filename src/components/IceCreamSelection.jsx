@@ -1,114 +1,75 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+"use client";
 import data from "@/assets/slider.json";
 import sizeMapping from "@/utils/sizeMapping";
 
-function IceCreamSelection({ selection, onSizeChange, onRemove }) {
-  const [selectedFlavors, setSelectedFlavors] = useState(
-    Array(selection.size === "1kg" ? 4 : 3).fill(null)
-  );
-  
-  const handleFlavorChange = (index, flavor) => {
-    const updatedFlavors = [...selectedFlavors];
-    updatedFlavors[index] = flavor;
-    setSelectedFlavors(updatedFlavors);
-  };
+const CATEGORIES = [
+  { key: "chocolate", label: "Chocolate" },
+  { key: "dulce", label: "Dulce de leche" },
+  { key: "creams", label: "Creams" },
+  { key: "fruits", label: "Fruits" },
+  { key: "recomends", label: "Recommendations" },
+  { key: "sweetOleasures", label: "Sweet Pleasures" },
+  { key: "clasic", label: "Classic" },
+];
 
+function IceCreamSelection({ selection, onRemove, onSizeChange, onFlavorChange }) {
   return (
-    <div className="mb-8 p-4 border border-gray-300 rounded-md">
-      <div className="flex items-center mb-4">
+    <div className="border rounded-md p-4 mb-6">
+      <div className="flex items-start gap-4">
         <img
           src={selection.img}
-          alt={selection.name}
-          className="w-32 h-32 object-cover mr-4"
+          alt={selection.size}
+          className="w-32 h-32 object-cover rounded-md"
         />
+
         <div>
-          <h3 className="text-lg font-bold mb-2">{selection.size} Pot</h3>
+          <p className="font-bold text-xl">{selection.size} Pot</p>
+          <p className="text-lg">$ {selection.price}</p>
           <select
             value={selection.size}
-            onChange={(event) => onSizeChange(selection.id, event.target.value)}
-            className="border border-gray-400 px-2 py-1"
+            onChange={(e) => onSizeChange(selection.uid, e.target.value)}
+            className="border rounded px-2 py-1 mt-2"
           >
-            {Object.entries(sizeMapping).map(([key, value]) => (
-              <option key={key} value={value.size}>
-                {value.size}
+            {Object.keys(sizeMapping).map((key) => (
+              <option key={key} value={sizeMapping[key].size}>
+                {sizeMapping[key].size}
               </option>
             ))}
           </select>
         </div>
-      </div>
-      {Array.from({ length: selection.size === "1kg" ? 4 : 3 }).map(
-        (_, index) => (
-          <div key={index} className="mb-4">
-            <label className="block mb-1">
-              Flavor {index + 1} of {selection.size === "1kg" ? 4 : 3}:
-            </label>
-            <select
-              value={selectedFlavors[index] || ""}
-              onChange={(event) =>
-                handleFlavorChange(index, event.target.value)
-              }
-              className="border border-gray-400 px-2 py-1 w-full"
-            >
-              <option value="" disabled>
-                Select Flavor
-              </option>
-              <optgroup label="Chocolates">
-                {data.chocolate.map((flavor) => (
-                  <option
-                    key={flavor.id}
-                    value={flavor.name}
-                    disabled={selectedFlavors.includes(flavor.name)}
-                  >
-                    {flavor.name}
-                  </option>
-                ))}
-              </optgroup>
-              <optgroup label="Creams">
-                {data.creams.map((flavor) => (
-                  <option
-                    key={flavor.id}
-                    value={flavor.name}
-                    disabled={selectedFlavors.includes(flavor.name)}
-                  >
-                    {flavor.name}
-                  </option>
-                ))}
-              </optgroup>
-              <optgroup label="Dulces">
-                {data.dulce.map((flavor) => (
-                  <option
-                    key={flavor.id}
-                    value={flavor.name}
-                    disabled={selectedFlavors.includes(flavor.name)}
-                  >
-                    {flavor.name}
-                  </option>
-                ))}
-              </optgroup>
-              <optgroup label="Fruits">
-                {data.fruits.map((flavor) => (
-                  <option
-                    key={flavor.id}
-                    value={flavor.name}
-                    disabled={selectedFlavors.includes(flavor.name)}
-                  >
-                    {flavor.name}
-                  </option>
-                ))}
-              </optgroup>
-            </select>
-          </div>
-        )
-      )}
-      {selection.id !== 1 && (
+
         <button
-          className="bg-red-500 text-white px-4 py-2 rounded-md"
           onClick={onRemove}
+          className="ml-auto text-gray-500 hover:text-red-600"
         >
           Remove
         </button>
-      )}
+      </div>
+
+      {selection.flavors.map((flavor, i) => (
+        <div key={i} className="mt-3">
+          <label className="block">
+            Flavor {i + 1} of {selection.flavors.length}:
+          </label>
+          <select
+            value={flavor}
+            onChange={(e) => onFlavorChange(selection.uid, i, e.target.value)}
+            className="w-full border rounded px-2 py-1"
+          >
+            <option value="">Select Flavor</option>
+            {CATEGORIES.map((cat) => (
+              <optgroup key={cat.key} label={cat.label}>
+                {(data[cat.key] ?? []).map((f) => (
+                  <option key={`${cat.key}-${f.id}`} value={f.name}>
+                    {f.name}
+                  </option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+        </div>
+      ))}
     </div>
   );
 }

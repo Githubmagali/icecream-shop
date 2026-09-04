@@ -11,9 +11,8 @@ const items = [
   },
   {
     id: 2,
-    name: "Drink",
-    img: "/swiper-drink.jpg",
-    description: "Coffe"
+    name: "Cake",
+    img: "/swiper-2.jpg" 
   },
   {
     id: 3,
@@ -23,8 +22,8 @@ const items = [
   },
   {
     id: 5,
-    name: "Ice cream",
-    img:"/swiper-icecream-americano.png"
+    name: "Ice cream store",
+    img:"/swiper-ice.png"
   },{
     id:6,
     name:"Bombon",
