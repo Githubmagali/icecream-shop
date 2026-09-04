@@ -70,7 +70,28 @@ function HomePage() {
 
   return (
     <>
-      <SwiperPage />
+      <section className="relative h-[85vh] w-full">
+        <img
+          src="/swiper-ice.png"
+          alt="Ice Cream Store"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+       <div className="absolute inset-0 bg-black/30" /> 
+        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6">
+          <h1 className="text-white text-5xl lg:text-7xl font-light tracking-wide leading-tight">
+            Our
+            <br />
+            <span className="font-normal">Ice Creams</span>
+          </h1>
+         <p className="text-white text-sm lg:text-base mt-4 tracking-wide max-w-2xl mx-auto">
+            Discover the perfect blend of flavors and textures in our ice creams, crafted with care to delight your taste buds. Indulge in a creamy experience that will leave you craving for more.
+          </p>
+        </div>
+      </section>
+
+      {/* capa oscura para contraste */}
+      
+
       <div className='flex items-center justify-center gap-x-10 py-10 text-yellow-700'>
         <i className='bx bxl-instagram text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:text-yellow-400'></i>
         <i className='bx bxl-facebook-circle text-3xl  lg:text-5xl cursor-pointer transition-transform transform hover:text-yellow-400' ></i>

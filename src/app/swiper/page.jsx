@@ -47,7 +47,7 @@ function SwiperPage(){
           {items.map((item, index) => (
             <SwiperSlide key={index}>
               <div className='flex bg-hero-pattern '>
-                <img src={item.img} alt={item.name} className='w-full h-96 object-cover' />
+                <img src={item.img} alt={item.name} className='w-full object-cover' />
                 {item.description && (
                   <p className='absolute text-label'>{item.description}</p>
                 )}
