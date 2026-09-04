@@ -114,7 +114,7 @@ export const chocolates = [{
 },
 {
   id: 2,
-  name: "Chocolate black and white",
+  name: "Milk chocolate",
   img: "/chocolate-blackandwhite.png",
   price: 12,
   soldOut: false,

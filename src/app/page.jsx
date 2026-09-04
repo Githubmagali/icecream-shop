@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import data from '@/assets/slider2.json'
 import ResendPage from '@/app/contact/page.jsx';
 import StorePage from '@/app/branchOffices/page.jsx';
+import HomeSwiperPage from '@/app/swipperHome/page.jsx';
 
 function AnimatedItem({ index, children }) {
 
@@ -78,6 +79,8 @@ function HomePage() {
         <i className='bx bxl-whatsapp text-3xl lg:text-5xl cursor-pointer transition-transform transform hover:text-yellow-400' ></i>
       </div>
 
+      <HomeSwiperPage />
+
       <h1 className='flex items-center justify-center text-center text-3xl lg:text-5xl pb-5 text-yellow-500'>For the tea</h1>
       <div className='lg:grid lg:grid-cols-3'>
         {teaImg.map((item, index) => (
@@ -101,8 +104,8 @@ function HomePage() {
       </div>
       <ResendPage />
 
-      <section class="separador" aria-hidden="true">
-        <div class="separador__bg"></div>
+      <section className="separador" aria-hidden="true">
+        <div className="separador__bg"></div>
       </section>
 
       <StorePage />
