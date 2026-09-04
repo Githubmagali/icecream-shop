@@ -13,13 +13,13 @@ const items = [
     id: 2,
     name: "Drink",
     img: "/swiper-drink.jpg",
-    description: "Hot and cold coffee"
+    description: "Coffe"
   },
   {
     id: 3,
     name: "Ice cream",
     img: "/swiper-icecream.jpg",
-    description: "Buy from our page and get a 15% discount"
+    description: "Discount for cash"
   },
   {
     id: 5,
@@ -49,7 +49,9 @@ function SwiperPage(){
             <SwiperSlide key={index}>
               <div className='flex bg-hero-pattern '>
                 <img src={item.img} alt={item.name} className='w-full h-96 object-cover' />
-                <p className='absolute text-label'>{item.description}</p>
+                {item.description && (
+                  <p className='absolute text-label'>{item.description}</p>
+                )}
               </div>
   
             </SwiperSlide>
