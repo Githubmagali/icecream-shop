@@ -4,63 +4,66 @@
        "id":"1",
        "name":"Chocolate white",
        "img":"white-back.png", 
-       "img2":"chocolate-white.jpg"
+      "description":"White chocolate is a type of chocolate confection made from cocoa butter, sugar, and milk solids. Unlike dark or milk chocolate, it does not contain cocoa solids, which gives it a creamy and sweet flavor. White chocolate is often used in baking, desserts, and confections, and it has a smooth texture that melts easily in the mouth."
        
     },
     {
         "id":"2",
         "name":"chocolate milk",
         "img":"chocolate-milk.jpg",
-        "img2":"milk-back.png"
+        "description":"Milk chocolate is a type of chocolate that contains milk powder or condensed milk, in addition to cocoa solids, sugar, and cocoa butter. It has a creamy texture and a sweeter taste compared to dark chocolate. Milk chocolate is widely used in confectionery, baking, and as a coating for various treats."
      },
      {
         "id":"3",
         "name":"Milk chocolate",
         "img":"blackandwhite.png",
-        "img2":"chocolate-blackandwhite.png"
+        "img2":"chocolate-blackandwhite.png",
+        "description":"Milk chocolate is a type of chocolate that contains milk powder or condensed milk, in addition to cocoa solids, sugar, and cocoa butter. It has a creamy texture and a sweeter taste compared to dark chocolate. Milk chocolate is widely used in confectionery, baking, and as a coating for various treats."
      }
    ],
+
+
 "forTheTea":[
    {
       "id":"1",
       "name":"cheesecake",
-      "img":"cheesecake.png",
-      "img2":"chese-back.png"
+      "img":"chese-back.png",
+      "description":"Cheesecake is a sweet dessert consisting of one or more layers. The main, and thickest layer, consists of a mixture of soft, fresh cheese, eggs, and sugar. If there is a bottom layer, it often consists of a crust or base made from crushed cookies (or digestive biscuits), graham crackers, pastry, or sponge cake."
 
    },
    {
       "id":"2",
       "name":"cheesecake fruit",
-      "img":"cheesecake-fruit.png",
-      "img2":"frutos-back.png"
+      "img":"frutos-back.png",
+      "description":"Cheesecake is a sweet dessert consisting of one or more layers. The main, and thickest layer, consists of a mixture of soft, fresh cheese, eggs, and sugar. If there is a bottom layer, it often consists of a crust or base made from crushed cookies (or digestive biscuits), graham crackers, pastry, or sponge cake."
 
    },
    {
       "id":"3",
       "name":"Lemon pie",
-      "img":"lemon-pie.png",
-      "img2":"lemon-back.png"
+      "img":"lemon-back.png",
+      "description":"Lemon pie is a dessert consisting of a pastry shell filled with a lemon-flavored custard or curd. It is often topped with meringue or whipped cream. The tartness of the lemon filling is balanced by the sweetness of the crust and topping, making it a popular choice for those who enjoy a tangy dessert."
 
    },
      {
       "id":"4",
       "name":"Cheesecake chocolate",
-      "img":"cheesecake-chocolate.png",
-      "img2":"chebg.jpg"
+      "img":"chebg.jpg",
+      "description":"Cheesecake is a sweet dessert consisting of one or more layers. The main, and thickest layer, consists of a mixture of soft, fresh cheese, eggs, and sugar. If there is a bottom layer, it often consists of a crust or base made from crushed cookies (or digestive biscuits), graham crackers, pastry, or sponge cake."
 
    },
    {
       "id":"5",
       "name":"Apple cake",
       "img":"appleCake.jpg",
-      "img2":"applebg.png"
+      "description":"Apple cake is a type of cake that incorporates apples as a primary ingredient. It can be made in various styles, including sponge cakes, coffee cakes, or even upside-down cakes. The apples can be sliced, diced, or pureed and are often mixed into the batter or layered within the cake. Apple cake is typically flavored with spices such as cinnamon and nutmeg, which complement the natural sweetness of the apples."
 
    },
    {
       "id":"6",
       "name":"Muffins",
       "img":"muffins.jpg",
-      "img2":"muffbg.png"
+      "description":"Muffins are small, individual-sized baked goods that are typically made from a batter consisting of flour, sugar, eggs, milk, and a leavening agent such as baking powder. They can be sweet or savory and often include additional ingredients like fruits, nuts, chocolate chips, or vegetables. Muffins are popular for breakfast or as a snack and can be enjoyed plain or with various toppings."
 
    }
 ]
