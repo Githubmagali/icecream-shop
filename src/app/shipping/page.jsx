@@ -4,7 +4,7 @@ import { useCart } from "@/context/cartProvider"
 import { location } from "@/assets/offices"
 
 function OrderPage() {
-    const { cart } = useCart()
+    const { cart, deleteFromCart } = useCart()
     const [deliveryType, setDeliveryType] = useState(null)
     const [branch, setBranch] = useState("")
     const [form, setForm] = useState({
@@ -34,6 +34,14 @@ function OrderPage() {
                 {cart?.map((item) => (
                     <div key={item.id} className="bg-gray-50 text-center py-3 rounded-md">
                         {item.name} - {item.quantity} x ${item.price}
+                        <button
+                            onClick={() => deleteFromCart(item.id)}
+                            aria-label={`Remove ${item.name} from cart`}
+                            title="Remove"
+                            className="text-gray-400 hover:text-red-600 transition-colors p-2 shrink-0"
+                        >
+                            <i className="bx bx-trash text-xl"></i>
+                        </button>
                     </div>
                 ))}
             </div>

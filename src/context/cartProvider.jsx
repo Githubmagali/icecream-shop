@@ -50,6 +50,7 @@ export const CartProvider = ({ children }) => {
         });
     };
 
+ 
     // Guardado + total. parseFloat para que quede número y no string.
     useEffect(() => {
         const total = cart.reduce((acc, currentItem) => {
@@ -63,9 +64,14 @@ export const CartProvider = ({ children }) => {
         }
     }, [cart]);
 
+       //Eliminar el item
+    const deleteFromCart = (itemId) => {
+        setCart((prevCart) => prevCart.filter((cartItem) => cartItem.id !== itemId));
+    };
+
     return (
         <CartContext.Provider
-            value={{ cart, addToCart, removeFromCart, totalCost, getItemQuantity }}
+            value={{ cart, addToCart, removeFromCart, totalCost, getItemQuantity, deleteFromCart }}
         >
             {children}
         </CartContext.Provider>

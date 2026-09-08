@@ -3,7 +3,7 @@ import { CartProvider } from '@/context/cartProvider'
 import Navbar from '../components/navbar'
 import Footer from "@/components/footer";
 import { JetBrains_Mono } from "next/font/google"
-
+import NavbarCart from '../components/cart';
 
 export const metadata = {
   title: "Icecream Shop",
@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
         <CartProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
+          <NavbarCart />
           <Footer />
         </CartProvider>
       </body>
