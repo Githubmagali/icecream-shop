@@ -4,7 +4,7 @@ import data from '@/assets/slider2.json'
 import ResendPage from '@/app/contact/page.jsx';
 import StorePage from '@/app/branchOffices/page.jsx';
 import HomeSwiperPage from '@/app/swipperHome/page.jsx';
-
+import ModelsMarquee from '@/components/ModelsMarquee';
 
 function AnimatedItem2({ index, children }) {
 
@@ -116,12 +116,12 @@ function HomePage() {
           </AnimatedItem2>
         ))}
       </div>
+      <ModelsMarquee />
       <ResendPage />
 
       <section className="separador" aria-hidden="true">
         <div className="separador__bg"></div>
       </section>
-
       <StorePage />
 
     </>
