@@ -74,28 +74,50 @@ function ResendPage() {
 
   return (
     <>
-
-      <section className="flex  flex-col items-center justify-center sm:text-center px-5 " id="contact">
+      <section className="flex flex-col items-center justify-center sm:text-center px-5" id="contact">
         <p className="md:text-5xl text-3xl pt-20 text-title">Talk to us</p>
-        <form className="py-10">
-        
-          <input type="text" id="fullname" className="border py-2 mb-4 w-1/2 rounded " placeholder="Full name"
+
+        <form className="w-full max-w-2xl py-10 flex flex-col gap-4">
+          <input
+            type="text"
+            id="fullname"
+            className="border p-2 w-full rounded"
+            placeholder="Full name"
             value={fullName}
-            onChange={(e) => setFullName(e.target.value)} />
-          <input type="email" id="email" placeholder="Email" className="border p-2 mb-4 w-1/2 rounded"
+            onChange={(e) => setFullName(e.target.value)}
+          />
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            className="border p-2 w-full rounded"
             value={email}
-            onChange={(e) => setEmail(e.target.value)} />
-          <textarea id="description" className="border p-8 mb-4 w-full resize-none rounded"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <textarea
+            id="description"
+            rows={6}
+            placeholder="Message"
+            className="border p-2 w-full resize-none rounded"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}></textarea>
-          <button className="border border-gray-600 hover:bg-gray-200 px-5 py-1 rounded-md"
+            onChange={(e) => setMessage(e.target.value)}
+          ></textarea>
+
+          <button
+            type="submit"
+            className="self-center px-8 py-2.5 rounded-md border border-gray-800 text-gray-800 font-medium
+             transition-all duration-300
+             hover:bg-gray-900 hover:text-white hover:shadow-md
+             active:scale-95
+             focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
             onClick={(e) => {
               e.preventDefault();
               handleSendEmail();
             }}
           >
-            Send
+          Send
           </button>
+
           {isAlertVisible && (
             <CustomAlert
               message={alertMessage}
@@ -103,7 +125,6 @@ function ResendPage() {
               alertType={alertType}
             />
           )}
-
         </form>
       </section>
     </>
