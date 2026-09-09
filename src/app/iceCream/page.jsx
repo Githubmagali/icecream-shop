@@ -36,11 +36,11 @@ function IceCream() {
       prev.map((s) =>
         s.uid === uid
           ? {
-              ...s,
-              ...sizeData,
-              // conserva lo ya elegido, recorta o rellena según el tamaño nuevo
-              flavors: Array.from({ length: max }, (_, i) => s.flavors[i] ?? ""),
-            }
+            ...s,
+            ...sizeData,
+            // conserva lo ya elegido, recorta o rellena según el tamaño nuevo
+            flavors: Array.from({ length: max }, (_, i) => s.flavors[i] ?? ""),
+          }
           : s
       )
     );
@@ -55,7 +55,7 @@ function IceCream() {
       )
     );
 
-  const handleNextStep = () => {
+  const handleAdd = () => {
     const incomplete = selections.findIndex((s) => s.flavors.some((f) => !f));
     if (incomplete !== -1) {
       setError(`Pot ${incomplete + 1}: please choose all the flavors.`);
@@ -65,8 +65,6 @@ function IceCream() {
 
     selections.forEach((s) => {
       addToCart({
-        // id string y compuesto: no choca con los ids numéricos de "For the tea",
-        // y dos potes idénticos suman cantidad en vez de duplicar línea
         id: `icecream|${s.size}|${[...s.flavors].sort().join(",")}`,
         name: `Ice cream ${s.size}`,
         flavors: s.flavors,
@@ -75,10 +73,11 @@ function IceCream() {
       });
     });
 
-    router.push("/shipping");
+    // vuelve al estado inicial para armar el siguiente pedido
+    setSelections([makeSelection()]);
   };
 
-  const isNextStepButtonDisabled = selections.length === 0;
+  const isAddButtonDisabled = selections.length === 0;
   const total = selections.reduce((acc, s) => acc + s.price, 0);
 
   return (
@@ -101,7 +100,7 @@ function IceCream() {
 
       <div className="flex justify-between items-center flex-mobile-btn">
         <button
-          className="btn-ice-cream text-white px-4 py-2 rounded-md mb-4"
+          className=" text-white px-4 py-2 rounded-md mb-4 bg-yellow-800"
           onClick={addSelection}
         >
           + Add Another Pot
@@ -110,13 +109,12 @@ function IceCream() {
         <div className="flex items-center gap-4">
           <p className="text-xl">Total: $ {total}</p>
           <button
-            onClick={handleNextStep}
-            disabled={isNextStepButtonDisabled}
-            className={`btn-ice-cream text-white px-4 py-2 rounded-md ${
-              isNextStepButtonDisabled ? "opacity-50 cursor-not-allowed" : ""
-            }`}
+            onClick={handleAdd}
+            disabled={isAddButtonDisabled}
+            className={` text-white px-4 bg-yellow-800 py-2 rounded-md ${isAddButtonDisabled ? "opacity-50 cursor-not-allowed" : ""
+              }`}
           >
-            Next Step
+            Add
           </button>
         </div>
       </div>
