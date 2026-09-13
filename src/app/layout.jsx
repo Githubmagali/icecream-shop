@@ -4,6 +4,7 @@ import Navbar from '../components/navbar'
 import Footer from "@/components/footer";
 import { JetBrains_Mono } from "next/font/google"
 import NavbarCart from '../components/cart';
+import SubscribeModal from '../components/SubscribeModal';
 
 export const metadata = {
   title: "Icecream Shop",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           <main className="flex-1">{children}</main>
           <NavbarCart />
+          <SubscribeModal />
           <Footer />
         </CartProvider>
       </body>
